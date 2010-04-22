@@ -12,4 +12,4 @@ size_t _f_strlen (const char *);
 /* \func: strlen */
 
 
-#endif /* HSTRING_H */
+#endif /* _FSTRING_H */
