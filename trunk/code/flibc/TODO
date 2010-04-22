@@ -1,0 +1,283 @@
+ - assert.h
+    assert (macro)
+
+- complex.h
+    cabs
+    cacos
+    cacosh
+    carg
+    casin [disambiguation needed]
+    casinh
+    catan [disambiguation needed]
+    catanh
+    ccos
+    ccosh
+    cexp
+    cimag
+    cis (non-standard)
+    clog [disambiguation needed]
+    conj
+    cpow
+    cproj
+    creal
+    csin
+    csinh
+    csqrt
+    ctan
+    ctanh
+
+- ctype.h
+    digittoint (non-standard)
+    isalnum
+    isalpha
+    isascii (non-standard)
+    isblank
+    iscntrl
+    isdigit
+    isgraph
+    islower
+    isprint
+    ispunct
+    isspace
+    isupper
+    isxdigit
+    toascii (non-standard)
+    tolower
+    toupper
+
+- errno.h
+    (no functions)
+
+- float.h
+    (no functions)
+
+- inttypes.h
+    imaxabs
+    imaxdiv
+    strtoimax
+    strtoumax
+    wcstoimax
+    wcstoumax
+
+- iso646.h
+    (no functions)
+
+- limits.h
+    (no functions)
+
+- locale.h
+    localeconv
+    setlocale
+
+- math.h
+    acos
+    asin
+    atan
+    atan2
+    atof
+    ceil
+    cos
+    cosh
+    exp
+    fabs
+    floor
+    frexp
+    ldexp
+    log
+    log10
+    modf
+    pow
+    sin
+    sinh
+    sqrt
+    tan
+    tanh
+
+- netdb.h
+    getaddrinfo
+    getnameinfo
+
+- setjmp.h
+    longjmp
+    setjmp
+
+- signal.h
+    raise
+
+- stdarg.h
+    va_arg (macro)
+    va_copy (macro)
+    va_end (macro)
+    va_start (macro)
+
+- stddef.h
+    offsetof (macro)
+
+- stdio.h
+    clearerr
+    fclose
+    feof
+    ferror
+    fflush
+    fgetc
+    fgetpos
+    fgets
+    fopen, freopen, fdopen (non-standard)
+    fprintf
+    fputc
+    fputs
+    fread
+    fscanf
+    fseek
+    fsetpos
+    ftell
+    fwrite
+    getc (macro)
+    getchar (macro)
+    gets
+    perror
+    printf, fprintf, sprintf, snprintf (non-standard)
+    putc (macro)
+    putchar, fputchar (non-standard) (macro)
+    puts
+    remove
+    rename
+    rewind
+    scanf, fscanf, sscanf, vfscanf (non-standard), vscanf, vsscanf
+    setbuf
+    setvbuf
+    tmpfile
+    tmpnam
+    ungetc
+    vprintf, vfprintf, vsprintf
+
+- stdlib.h
+    abort
+    abs, labs
+    atexit
+    atof
+    atoi
+    atol
+    bsearch
+    div, ldiv
+    exit
+    free
+    itoa (non-standard)
+    getenv
+    ldiv
+    ltoa (non-standard)
+    malloc, calloc, and realloc
+    qsort
+    rand
+    srand
+    strtod
+    strtol
+    strtoul
+    system
+
+- string.h
+    memchr
+    memcmp
+    memcpy
+    memmove
+    memset
+    strcat, strncat
+    strchr
+    strcmp, strncmp
+    strcoll
+    strcpy, strncpy
+    strcspn
+    strerror
++   strlen
+    strpbrk
+    strrchr
+    strspn
+    strstr
+    strtok
+    strxfrm
+
+- time.h
+    asctime
+    clock
+    ctime
+    difftime
+    gmtime
+    localtime
+    mktime
+    strftime
+    time
+
+- wchar.h
+    btowc
+    fgetwc
+    fgetws
+    fputwc
+    fputws
+    fwide
+    fwprintf
+    fwscanf
+    getwc (macro)
+    getwchar (macro)
+    mbrlen
+    mbrtowc
+    mbsinit
+    mbsrtowcs
+    putwc (macro)
+    putwchar (macro)
+    swprintf
+    swscanf
+    ungetwc
+    vfwprintf
+    vswprintf
+    vwprintf
+    wcrtomb
+    wcscat
+    wcschr
+    wcscmp
+    wcscoll
+    wcscpy
+    wcscspn
+    wcsftime
+    wcslen
+    wcsncat
+    wcsncmp
+    wcsncpy
+    wcspbrk
+    wcsrchr
+    wcsrtombs
+    wcsspn
+    wcsstr
+    wcstod
+    wcstok
+    wcstol
+    wcstoul
+    wcsxfrm
+    wctob
+    wmemchr
+    wmemcmp
+    wmemcpy
+    wmemmove
+    wmemset
+    wprintf
+    wscanf
+
+- wctype.h
+    iswalnum
+    iswalpha
+    iswcntrl
+    iswctype
+    iswdigit
+    iswgraph
+    iswlower
+    iswprint
+    iswpunct
+    iswspace
+    iswupper
+    iswxdigit
+    towctrans
+    towlower
+    towupper
+    wctrans
+    wctype
+
+REFERENCE : <http://en.wikipedia.org/wiki/List_of_C_functions>
