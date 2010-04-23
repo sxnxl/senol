@@ -1,10 +1,9 @@
 
 class Tank
 {
-    public:
-        Tank();
-        ~Tank();
-    private:
-        Area area;
+public:
+  Tank ();
+  ~Tank ();
+private:
+  Area area;
 }
-
