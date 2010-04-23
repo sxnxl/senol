@@ -1,8 +1,7 @@
 #include <fstring.h>
 #include <ffake.h>
 
-/* Return the length of the null-terminated string STR.  Scan for */
-/* the null terminator quickly by testing four bytes at a time.   */
+/* Return the length of the null-terminated string STR. */
 size_t
 _f_strlen (const char *str)
 {
