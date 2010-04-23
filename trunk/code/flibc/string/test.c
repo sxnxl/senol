@@ -24,7 +24,7 @@ main (int argc, char **argv)
   const char *strNull = "\0";
   const char *strSpace = " ";
 
-  printf("### USING %s ###\n",TEST_USING);
+  printf ("### USING %s ###\n", TEST_USING);
 
   TEST_STRLEN (str35);
   TEST_STRLEN (str1);

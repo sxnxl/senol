@@ -14,11 +14,11 @@
 
 struct _List
 {
-    int id;
-    char *key;
-    char *data;
-    struct _List *ptr[2];
-    struct _List *end[2];
+  int id;
+  char *key;
+  char *data;
+  struct _List *ptr[2];
+  struct _List *end[2];
 };
 
 typedef struct _List List;
@@ -32,35 +32,35 @@ struct _Cell
 typedef struct _Cell Cell;
 
 void
-list_init(List *li)
+list_init (List * li)
 {
-    li = (List *) calloc(2,sizeof(List));
-    li[0].id = LIST_BEGIN_ID;
-    li[0].key = NULL;
-    li[0].ptr[DIR_UP] = NULL;
-    li[0].end[LIST_BEGIN] = NULL;
-    li[0].ptr[DIR_DOWN] = li+1;
-    li[0].end[LIST_END] = NULL;
-    li[0].data = NULL;
+  li = (List *) calloc (2, sizeof (List));
+  li[0].id = LIST_BEGIN_ID;
+  li[0].key = NULL;
+  li[0].ptr[DIR_UP] = NULL;
+  li[0].end[LIST_BEGIN] = NULL;
+  li[0].ptr[DIR_DOWN] = li + 1;
+  li[0].end[LIST_END] = NULL;
+  li[0].data = NULL;
 
-    li[1].id = LIST_END_ID;
-    li[1].key = NULL;
-    li[1].data = NULL;
-    li[1].ptr[DIR_DOWN] = NULL;
-    li[1].ptr[DIR_UP] = li;
-    li[1].end[LIST_BEGIN] = NULL;
-    li[1].end[LIST_END] =NULL;
+  li[1].id = LIST_END_ID;
+  li[1].key = NULL;
+  li[1].data = NULL;
+  li[1].ptr[DIR_DOWN] = NULL;
+  li[1].ptr[DIR_UP] = li;
+  li[1].end[LIST_BEGIN] = NULL;
+  li[1].end[LIST_END] = NULL;
 }
 
 void
-list_append(List *li)
+list_append (List * li)
 {
 
 }
 
 
 Cell *
-init_cells (Cell *cp, size_t size)
+init_cells (Cell * cp, size_t size)
 {
   int i;
   cp = (Cell *) calloc (size, sizeof (Cell));
@@ -74,12 +74,12 @@ init_cells (Cell *cp, size_t size)
 }
 
 void
-load_tape (Cell *tape)
+load_tape (Cell * tape)
 {
 }
 
 int
-main(int argc,char **argv)
+main (int argc, char **argv)
 {
-    exit(EXIT_SUCCESS);
+  exit (EXIT_SUCCESS);
 }
