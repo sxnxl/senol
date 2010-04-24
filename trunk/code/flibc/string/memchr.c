@@ -6,10 +6,20 @@
 void *
 _f_memchr (const void *s, char c, size_t n)
 {
-  while (n--)
+  char *chr = (unsigned char *) s;
+  void *ret = NULL;
+
+  while (n--)			/* loop n times for first n bytes */
     {
-      if (*s++ == c)
-	break;
+      if (*chr == c)
+	{
+	  ret = (void *) chr;	/* found, set return value to chr pointer */
+	  break;		/* found, let's break */
+	}
+      else if (*chr == '\0')	/* null-terminator so we've reached end of string */
+	break;			/* not found, lets break */
+      chr++;
     }
-  return (void *) (n == 0 ? NULL : s);
+
+  return ret;
 }
