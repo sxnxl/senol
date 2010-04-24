@@ -12,7 +12,7 @@
   printf("strlen( %s:\"%s\" ) = %d\n",#S,S,(int)strlen(S))
 
 #define TEST_MEMCHR(S,C,N) \
-  printf("memchr( %s:\"%s\",'%c',%p) = %d\n",#S,S,C,N,memchr(S,C,N))
+  printf("memchr( %s(%p):\"%s\",'%c',%d) = %p\n",#S,S,S,C,N,memchr(S,C,N))
 
 
 int
@@ -26,18 +26,18 @@ main (int argc, char **argv)
 
   printf ("### USING %s ###\n", TEST_USING);
 
-  TEST_STRLEN (str35);
-  TEST_STRLEN (str1);
-  TEST_STRLEN (str0);
-  TEST_STRLEN (strNull);
-  TEST_STRLEN (strSpace);
-/*
-  TEST_MEMCHR (str35);
+  TEST_STRLEN (str35);      /* = 35 */
+  TEST_STRLEN (str1);       /* =  1 */
+  TEST_STRLEN (str0);       /* =  0 */
+  TEST_STRLEN (strNull);    /* =  0 */
+  TEST_STRLEN (strSpace);   /* =  1 */
+
+  TEST_MEMCHR (str35,'i',10); /* = 3 */
+  /*
   TEST_MEMCHR (str1);
   TEST_MEMCHR (str0);
   TEST_MEMCHR (strNull);
   TEST_MEMCHR (strSpace);
 */
-
   return 0;
 }
