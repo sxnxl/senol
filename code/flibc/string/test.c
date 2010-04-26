@@ -26,18 +26,18 @@ main (int argc, char **argv)
 
   printf ("### USING %s ###\n", TEST_USING);
 
-  TEST_STRLEN (str35);      /* = 35 */
-  TEST_STRLEN (str1);       /* =  1 */
-  TEST_STRLEN (str0);       /* =  0 */
-  TEST_STRLEN (strNull);    /* =  0 */
-  TEST_STRLEN (strSpace);   /* =  1 */
+  TEST_STRLEN (str35);		/* = 35 */
+  TEST_STRLEN (str1);		/* =  1 */
+  TEST_STRLEN (str0);		/* =  0 */
+  TEST_STRLEN (strNull);	/* =  0 */
+  TEST_STRLEN (strSpace);	/* =  1 */
 
-  TEST_MEMCHR (str35,'i',10); /* = 3 */
+  TEST_MEMCHR (str35, 'i', 10);	/* = 3 */
   /*
-  TEST_MEMCHR (str1);
-  TEST_MEMCHR (str0);
-  TEST_MEMCHR (strNull);
-  TEST_MEMCHR (strSpace);
-*/
+     TEST_MEMCHR (str1);
+     TEST_MEMCHR (str0);
+     TEST_MEMCHR (strNull);
+     TEST_MEMCHR (strSpace);
+   */
   return 0;
 }

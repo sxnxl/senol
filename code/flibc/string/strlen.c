@@ -5,10 +5,10 @@
 size_t
 _f_strlen (const char *str)
 {
-  size_t ret = 0;
+  size_t len = 0;
 
   while (*str++ != '\0')
-    ret++;
+    len++;
 
-  return ret;
+  return len;
 }
