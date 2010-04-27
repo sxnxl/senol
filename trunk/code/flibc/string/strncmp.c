@@ -1,4 +1,4 @@
-/*  strcmp - compare two strings
+/*  strncmp - compare two strings
     Based on P.J. Plauger's implementation. (The Standard C Library, 1992)
     Copyright © 2010 Şenol Korkmaz
 
@@ -22,10 +22,11 @@
 #include "ffake.h"
 
 int
-_f_strcmp (const char *s1, const char *s2)
+_f_strncmp (const char *s1, const char *s2, size_t n)
 {
   /* loop until find first non-matching characters of s1 and s2 */
-  for (; *s1 == *s2 && *s1; s1++, s2++)
+  /* or until n characters compared */
+  for (; *s1 == *s2 && *s1 && n; s1++, s2++, n--)
     ;
 
   /* After loop, we have first-non matching characters or all characters are matched.

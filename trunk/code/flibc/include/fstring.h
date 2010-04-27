@@ -47,9 +47,13 @@ char *_f_strrchr (const char *, int);
 #define strcmp(s,t) _f_strcmp(s,t)
 int _f_strcmp (const char *, const char *);
 
+#undef strncmp
+#define strncmp(s,t,n) _f_strncmp(s,t,n)
+int _f_strncmp (const char *, const char *, size_t);
+
+
 /* TODO
 - string.h
-+-- strcmp, strncmp
 --- strcoll
 --- strcpy, strncpy
 --- strcspn
