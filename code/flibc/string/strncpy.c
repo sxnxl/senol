@@ -1,4 +1,4 @@
-/*  strchr - locate character in string
+/*  strncpy - copy a string
     Copyright © 2010 Şenol Korkmaz
 
     This file is part of flibc.
@@ -16,17 +16,20 @@
     You should have received a copy of the GNU Lesser General Public License
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 #include "fstring.h"
 #include "ffake.h"
 
 char *
-_f_strchr (const char *s, int c)
+_f_strncpy (char *dest, const char *src, size_t n)
 {
-  /* loop until find c or null-terminator in s */
-  for (; *s != (char) c && *s; s++)
+  char *dest_byte = dest;
+
+  /* copy character and increase pointers to next character */
+  /* copy no more than n bytes */
+  for (; *dest_byte = *src && n; dest_byte++, src++, n--)
     ;
 
-  /* if we have null-terminator but not looking for null-char. so return NULL */
-  /* otherwise we have found it, return pointer */
-  return (char *) (!*s && c ? NULL : s);
+  /* return pointer to string dest */
+  return dest;
 }

@@ -176,19 +176,19 @@
 --- system
 
 - string.h
-+-- memchr
-+-- memcmp
-+-- memcpy
-+-- memmove
-+-- memset
-+-- strcat, strncat
-+-- strchr, strrchr
-+-- strcmp, strncmp
+++- memchr, memrchr
+++- memcmp
+++- memcpy
+++- memmove
+++- memset
+++- strcat, strncat
+++- strchr, strrchr
+++- strcmp, strncmp
 --- strcoll
---- strcpy, strncpy
+++- strcpy, strncpy
 --- strcspn
 --- strerror
-+-- strlen
+++- strlen
 --- strpbrk
 --- strspn
 --- strstr
@@ -282,8 +282,8 @@
 REFERENCE : <http://en.wikipedia.org/wiki/List_of_C_functions>
 
 ========+++--- LEGEND ---+++========
---- !implemented !tested !documented
-+--  implemented !tested !documented
-++-  implemented  tested !documented
-+++  implemented  tested  documented
+--- !implemented !documented !tested
++--  implemented !documented !tested
+++-  implemented  documented !tested
++++  implemented  documented  tested
 ====================================
