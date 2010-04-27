@@ -16,7 +16,6 @@
     You should have received a copy of the GNU Lesser General Public License
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
-/* $Id$ */
 
 #include "fstring.h"
 #include "ffake.h"
@@ -35,3 +34,5 @@ _f_memchr (const void *s, int c, size_t n)
   /* if found then return pointer to byte, else return NULL */
   return (*s_byte == c) ? (void *) s_byte : NULL;
 }
+
+/* $Id$ */

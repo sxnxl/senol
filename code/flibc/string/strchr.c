@@ -30,3 +30,5 @@ _f_strchr (const char *s, int c)
   /* otherwise we have found it, return pointer */
   return (char *) (!*s && c ? NULL : s);
 }
+
+/* $Id$ */

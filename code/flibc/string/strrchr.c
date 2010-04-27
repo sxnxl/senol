@@ -34,3 +34,5 @@ _f_strrchr (const char *s, int c)
 
   return (char *) last;
 }
+
+/* $Id$ */

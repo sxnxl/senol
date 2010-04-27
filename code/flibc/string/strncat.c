@@ -43,3 +43,5 @@ _f_strncat (char *dest, const char *src, size_t n)
   /* return pointer to destination string */
   return dest;
 }
+
+/* $Id$ */

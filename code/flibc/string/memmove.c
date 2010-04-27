@@ -51,3 +51,5 @@ _f_memmove (void *dest, const void *src, size_t n)
   /* return pointer to memory area dest */
   return dest;
 }
+
+/* $Id$ */
