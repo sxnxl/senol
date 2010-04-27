@@ -36,3 +36,5 @@ _f_strncmp (const char *s1, const char *s2, size_t n)
    * respectively, to be less than or be greater than first non-matching character of s2 */
   return (int) (*(const unsigned char *) s1 - *(const unsigned char *) s2);
 }
+
+/* $Id$ */

@@ -34,3 +34,5 @@ _f_memrchr (const void *s, char c, size_t n)
   /* if found then return pointer to byte, else return NULL */
   return (*s_byte == c) ? (void *) s_byte : NULL;
 }
+
+/* $Id$ */

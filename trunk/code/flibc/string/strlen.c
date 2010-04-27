@@ -32,3 +32,5 @@ _f_strlen (const char *str)
   /* return string lenght */
   return len;
 }
+
+/* $Id$ */

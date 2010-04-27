@@ -38,3 +38,5 @@ _f_memcmp (const void *s1, const void *s2, size_t n)
    * respectively, to be less than or be greater than first non-matching byte of s2 */
   return (int) (*s1_byte - *s2_byte);
 }
+
+/* $Id$ */

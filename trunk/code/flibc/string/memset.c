@@ -32,3 +32,5 @@ _f_memset (void *s, int c, size_t n)
   /* return pointer to memory area */
   return s;
 }
+
+/* $Id$ */

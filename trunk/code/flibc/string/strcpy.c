@@ -32,3 +32,5 @@ _f_strcpy (char *dest, const char *src)
   /* return pointer to string dest */
   return dest;
 }
+
+/* $Id$ */
