@@ -184,13 +184,13 @@
 ++- strcat, strncat
 ++- strchr, strrchr
 ++- strcmp, strncmp
---- strcoll
+--- strcoll (requires locale)
 ++- strcpy, strncpy
 +-- strspn, strcspn
---- strerror
+--- strerror (requires locale)
 ++- strlen
---- strpbrk
---- strstr
++-- strpbrk
++-- strstr
 --- strtok
 --- strxfrm
 
