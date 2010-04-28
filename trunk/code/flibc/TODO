@@ -186,11 +186,10 @@
 ++- strcmp, strncmp
 --- strcoll
 ++- strcpy, strncpy
---- strcspn
++-- strspn, strcspn
 --- strerror
 ++- strlen
 --- strpbrk
---- strspn
 --- strstr
 --- strtok
 --- strxfrm
