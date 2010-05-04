@@ -31,8 +31,9 @@ _f_memchr (const void *s, int c, size_t n)
   for (; n && *s_byte != c; n--, s_byte++)
     ;
 
-  /* if found then return pointer to byte, else return NULL */
-  return (*s_byte == c) ? (void *) s_byte : NULL;
+  /* If n is zero, that means there is no c found in the first n bytes of s */
+  /* if found then return pointer to byte, otherwise return NULL */
+  return (n==0) ? NULL : (void *) s_byte;
 }
 
 /* $Id$ */

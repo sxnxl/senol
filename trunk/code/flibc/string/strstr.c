@@ -23,20 +23,20 @@
 char *
 _f_strstr(const char *haystack, const char *needle)
 {
-  char * ret;
+  char * haystack_last = haystack;
+  char * haystack_p = haystack;
+  char * needle_p;
 
-  for (;*haystack != *needle; haystack++)
-      ;
+  for (;*haystack_last;haystack_last++)
+    {
+      needle_p = needle;
+      for (;*haystack_p == *needle_p && *needle_p ;haystack_p++,needle_p++)
+        ;
+      if (!*needle_p)
+        return haystack_last;
+    }
 
-  if (*haystack)
-      ret = haystack;
-  else
-      return NULL;
-
-  for (;*needle && *haystack == *needle; haystack++, needle++)
-      ;
-
-  return (*needle)?NULL:ret;
+    return NULL;
 }
 
 /* $Id$ */
