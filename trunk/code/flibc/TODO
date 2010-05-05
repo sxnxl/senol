@@ -188,11 +188,11 @@
 ++- strcpy, strncpy
 +-- strspn, strcspn
 --- strerror (requires locale)
-++- strlen
++++ strlen
 +-- strpbrk
 +-- strstr
 --- strtok
---- strxfrm
+--- strxfrm (requires locale)
 
 - time.h
 --- asctime
