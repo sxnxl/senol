@@ -1,0 +1,7 @@
+		Here is a list of known BUGS
+		----------------------------
+
+*  memrchr: Does not pass the test!
+
+--
+Şenol Korkmaz <mail@senolkorkmaz.info>

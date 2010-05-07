@@ -1,4 +1,4 @@
-/*  tst-strlen - Tests strlen function
+/*  tst-memrchr - Tests function memrchr
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
@@ -30,43 +30,73 @@
 # include <string.h>		/* otherwise use stdlibc */
 #endif
 
-/* prototype : size_t strlen(const char *s); */
-#define FTEST(S) \
-  fprintf(stderr, "strlen( %s:\"%s\" ) = %d\n"\
-  			,#S, S, (int)strlen(S));\
-  fprintf(stdout,"%d\n",(int)strlen(S));\
+#define DIFF_MEMRCHR(S,C,N) (    \
+	(memrchr(S,C,N)== NULL) ? \
+			NULL  :  \
+	(void *)( ((const char *)memrchr(S,C,N)) - (const char *)S ) )
+
+/* prototype : void *memrchr(const void *s, int c, size_t n); */
+#define FTEST(S,C,N) 						    \
+  fprintf(stderr, "memrchr( %s:\"%s\", %s:'%c', %s=%d) = %p\n"      \
+  			,#S, S, #C, C, #N, N, DIFF_MEMRCHR(S,C,N)); \
+  fprintf(stdout,"%p\n",DIFF_MEMRCHR(S,C,N))
 
 void
 ftest ()
 {
   /* strings to be tested */
   char *str35 = "This is a 35 character long string.";
-  const char *str1 = "1";
-  const char *str0 = "";
   const char *strNull = "\0";
   const char *strSpace = " ";
 
   /* a null-character */
   const char chrNull = '\0';
+  const char chrA = 'A';
+  const char chra = 'a';
+  const char chrNewLine = '\n';
 
   /* call the test macro */
-  FTEST (str35);
-  FTEST (str1);
-  FTEST (str0);
-  FTEST (strNull);
-  FTEST (strSpace);
+
+  FTEST (str35, chrA, 35);
+  FTEST (str35, chra, 17);
+  FTEST (str35, chra, 18);
+  FTEST (str35, chra, 19);
+  FTEST (str35, chra, 35);
+
+  FTEST (str35, chrNewLine, 35);
+  FTEST (str35, chrNull, 34);
+  FTEST (str35, chrNull, 35);
+  FTEST (str35, chrNull, 36);
+  FTEST (str35, chrNull, 0);
+  FTEST (str35, chrNull, 1);
+
+  FTEST (strNull, chrNull, 0);
+  FTEST (strNull, chrNull, 1);
+  FTEST (strSpace, ' ', 0);
+  FTEST (strSpace, ' ', 1);
+  FTEST (strSpace, ' ', 2);
+  FTEST (strSpace, chrNull, 2);
 
   /* reference to a null-character */
-  FTEST (&chrNull);
+  FTEST (&chrNull, chrA, 0);
+  FTEST (&chrNull, chrA, 1);
+  FTEST (&chrNull, chrA, 100);
+  FTEST (&chrNull, chrNull, 0);
+  FTEST (&chrNull, chrNull, 1);
+  FTEST (&chrNull, chrNull, 100);
 
-  FTEST ("Hello, test!");
-  FTEST ("This string contains \n new line");
-  FTEST ("This string contains a smile :)");
+  FTEST ("Hello, test!", 'l', 2);
+  FTEST ("Hello, test!", 'l', 3);
+  FTEST ("Hello, test!", 'l', 4);
+
+  FTEST ("This string contains \n new line", '\n', 30);
+  FTEST ("This string contains a smile :)", ')', 31);
 
   /* uncomment the line below to produce a "Run Failed!" error with test.py */
-  /* FTEST (NULL); */
+  /* FTEST (NULL,'A',100); */
+
   /* uncomment the line below to produce a "Build Failed!" error with test.py */
-  /* FTEST (SOMETHING_STUPID_AND_NOT_DEFINED); */
+  /* FTEST (BUILD_ERROR_PLEASE,'X',100); */
 
   return;
 }

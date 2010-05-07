@@ -1,0 +1,10 @@
+This directory contains contributed implementations of some flibc functions.
+
+Please send your own implementations to Şenol Korkmaz <mail@senolkorkmaz.info>
+
+Before sending contributions, consider that flibc is licensed under the terms of 
+GNU Lesser General Public License so we publish only GNU LGPL compatible work.
+Please provide the copyright and license notices along your work.
+
+In some cases I might make corrections to your contributions, and in most cases
+i will use GNU Indent to make your code comply GNU Coding Guidelines.

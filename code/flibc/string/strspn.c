@@ -1,5 +1,7 @@
 /*  strspn - search a string for a set of characters
-    Copyright © 2010 Şenol Korkmaz
+
+    Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
 
     This file is part of flibc.
 
@@ -20,29 +22,32 @@
 #include "fstring.h"
 #include "ffake.h"
 #include "flimits.h"
-#include "bits/fmaps.h"
+
+#define F_ZEROS_16   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+#define F_ZEROS_64   F_ZEROS_16, F_ZEROS_16, F_ZEROS_16, F_ZEROS_16
+#define F_ZEROS_256  F_ZEROS_64, F_ZEROS_64, F_ZEROS_64, F_ZEROS_64
 
 size_t
-_f_strspn(const char *s, const char *accept)
+_f_strspn (const char *s, const char *accept)
 {
-    size_t len = 0;
+  size_t len = 0;
 
 #if (UCHAR_MAX == 255)
-    char chr_bmp[] = {F_ZEROS_256};
+  char chr_bmp[] = { F_ZEROS_256 };
 #else
-    char chr_bmp[UCHAR_MAX + 1];
-    int i;
-    for (i=0;i<UCHAR_MAX+1;i--)
-        chr_bmp[i] = 0;
+  char chr_bmp[UCHAR_MAX + 1];
+  int i;
+  for (i = 0; i < UCHAR_MAX + 1; i--)
+    chr_bmp[i] = 0;
 #endif
 
-    for (;*accept;accept++)
-        chr_bmp[*accept] = 1;
+  for (; *accept; accept++)
+    chr_bmp[*accept] = 1;
 
-    for (;chr_bmp[(unsigned char)*s];s++)
-        len++;
+  for (; chr_bmp[(unsigned char) *s]; s++)
+    len++;
 
-    return len;
+  return len;
 }
 
 /* $Id$ */

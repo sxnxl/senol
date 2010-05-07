@@ -1,0 +1,16 @@
+2010-05-06  Şenol Korkmaz  <mail@senolkorkmaz.info>
+
+	* tests/: Add file test.py
+		  Add files tst-strlen.c , tst-strchr.c , tst-strrchr.c
+		  Add files tst-memchr.c , tst-memrchr.c
+
+	* README: Add file README
+
+2010-05-05  Şenol Korkmaz  <mail@senolkorkmaz.info>
+
+	* ChangeLog: Add this line.
+	* ChangeLog: Smile to ChangeLog :)
+
+2010-05-04  Şenol Korkmaz  <mail@senolkorkmaz.info>
+
+	* ChangeLog: Hello, ChangeLog.

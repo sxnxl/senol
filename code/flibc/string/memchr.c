@@ -1,5 +1,7 @@
 /*  memchr - scan memory for a character
+
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
 
     This file is part of flibc.
 
@@ -33,7 +35,7 @@ _f_memchr (const void *s, int c, size_t n)
 
   /* If n is zero, that means there is no c found in the first n bytes of s */
   /* if found then return pointer to byte, otherwise return NULL */
-  return (n==0) ? NULL : (void *) s_byte;
+  return (n == 0) ? NULL : (void *) s_byte;
 }
 
 /* $Id$ */

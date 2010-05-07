@@ -1,5 +1,7 @@
 /*  strrchr - locate character in string
-    Copyright © 2010 Şenol Korkmaz
+
+    Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
 
     This file is part of flibc.
 
@@ -26,7 +28,7 @@ _f_strrchr (const char *s, int c)
 
   /* loop until find null-terminator in s */
   for (; *s; s++)
-    if (*s = (char) c)
+    if (*s == (char) c)
       last = s;
 
   if (c == '\0')		/* if we are looking for null-character */
