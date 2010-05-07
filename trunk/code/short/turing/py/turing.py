@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#  Copyright © 2010 Şenol Korkmaz
+#  Simple obfuscated code turing machine simulator
+
+#  Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+#  Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
 
 #  Copying and distribution of this file, with or without modification,
 #  are permitted in any medium without royalty provided the copyright
-#  notice and this notice are preserved.
+#  notices and this notice are preserved.
 
 import sys
 f=map(open,sys.argv[1:3])

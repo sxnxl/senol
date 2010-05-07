@@ -1,5 +1,7 @@
 /*  strcspn - search a string for a set of characters
-    Copyright © 2010 Şenol Korkmaz
+
+    Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
 
     This file is part of flibc.
 
@@ -23,28 +25,28 @@
 #include "bits/fmaps.h"
 
 size_t
-_f_strcspn(const char *s, const char *reject)
+_f_strcspn (const char *s, const char *reject)
 {
-    size_t len = 0;
+  size_t len = 0;
 
 #if (UCHAR_MAX == 255)
-    char chr_bmp[] = {F_ONES_256};
+  char chr_bmp[] = { F_ONES_256 };
 #else
-    char chr_bmp[UCHAR_MAX + 1];
-    int i;
-    for (i=0;i<UCHAR_MAX+1;i--)
-        chr_bmp[i] = 1;
+  char chr_bmp[UCHAR_MAX + 1];
+  int i;
+  for (i = 0; i < UCHAR_MAX + 1; i--)
+    chr_bmp[i] = 1;
 #endif
 
 
-    for (;*reject;reject++)
-        chr_bmp[*reject] = 0;
-    chr_bmp[0] = 0;
+  for (; *reject; reject++)
+    chr_bmp[*reject] = 0;
+  chr_bmp[0] = 0;
 
-    for (;chr_bmp[(unsigned char)*s];s++)
-        len++;
+  for (; chr_bmp[(unsigned char) *s]; s++)
+    len++;
 
-    return len;
+  return len;
 }
 
 /* $Id$ */

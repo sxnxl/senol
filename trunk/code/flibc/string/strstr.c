@@ -1,5 +1,7 @@
 /*  strstr - locate a substring
-    Copyright © 2010 Şenol Korkmaz
+
+    Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
 
     This file is part of flibc.
 
@@ -21,22 +23,22 @@
 #include "ffake.h"
 
 char *
-_f_strstr(const char *haystack, const char *needle)
+_f_strstr (const char *haystack, const char *needle)
 {
-  char * haystack_last = haystack;
-  char * haystack_p = haystack;
-  char * needle_p;
+  char *haystack_last = haystack;
+  char *haystack_p = haystack;
+  char *needle_p;
 
-  for (;*haystack_last;haystack_last++)
+  for (; *haystack_last; haystack_last++)
     {
       needle_p = needle;
-      for (;*haystack_p == *needle_p && *needle_p ;haystack_p++,needle_p++)
-        ;
+      for (; *haystack_p == *needle_p && *needle_p; haystack_p++, needle_p++)
+	;
       if (!*needle_p)
-        return haystack_last;
+	return haystack_last;
     }
 
-    return NULL;
+  return NULL;
 }
 
 /* $Id$ */

@@ -1,5 +1,7 @@
 /*  memrchr - scan memory for a character
-    Copyright © 2010 Şenol Korkmaz
+    
+    Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
 
     This file is part of flibc.
 
@@ -21,7 +23,7 @@
 #include "ffake.h"
 
 void *
-_f_memrchr (const void *s, char c, size_t n)
+_f_memrchr (const void *s, int c, size_t n)
 {
   const char *s_byte = s;	/* use char pointer to move byte-by-byte */
   s_byte += n - 1;		/* increase pointer to nth byte */

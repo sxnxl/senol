@@ -176,13 +176,13 @@
 --- system
 
 - string.h
-++- memchr, memrchr
+++* memchr, memrchr
 ++- memcmp
 ++- memcpy
 ++- memmove
 ++- memset
 ++- strcat, strncat
-++- strchr, strrchr
++++ strchr, strrchr
 ++- strcmp, strncmp
 --- strcoll (requires locale)
 ++- strcpy, strncpy

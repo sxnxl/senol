@@ -1,5 +1,7 @@
 /*  memcmp - compare memory areas
-    Copyright © 2010 Şenol Korkmaz
+
+    Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
 
     This file is part of flibc.
 

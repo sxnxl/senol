@@ -1,4 +1,4 @@
-/*  tst-strlen - Tests strlen function
+/*  tst-strchr - Tests function strchr
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
@@ -30,43 +30,57 @@
 # include <string.h>		/* otherwise use stdlibc */
 #endif
 
-/* prototype : size_t strlen(const char *s); */
-#define FTEST(S) \
-  fprintf(stderr, "strlen( %s:\"%s\" ) = %d\n"\
-  			,#S, S, (int)strlen(S));\
-  fprintf(stdout,"%d\n",(int)strlen(S));\
+#define DIFF_STRCHR(S,C) (	\
+	(strchr(S,C)==NULL) ? 	\
+		      NULL  : 	\
+	(void *)( ((const char *)strchr(S,C)) - S ) )
+
+/* prototype : char *strchr(const char *s, int c); */
+#define FTEST(S,C) 					  \
+  fprintf(stderr, "strchr( %s:\"%s\", %s:'%c') = %p\n"	  \
+  			,#S, S, #C, C, DIFF_STRCHR(S,C)); \
+  fprintf(stdout,"%p\n",DIFF_STRCHR(S,C))
 
 void
 ftest ()
 {
   /* strings to be tested */
   char *str35 = "This is a 35 character long string.";
-  const char *str1 = "1";
-  const char *str0 = "";
   const char *strNull = "\0";
   const char *strSpace = " ";
 
   /* a null-character */
   const char chrNull = '\0';
+  const char chrA = 'A';
+  const char chra = 'a';
+  const char chrNewLine = '\n';
 
   /* call the test macro */
-  FTEST (str35);
-  FTEST (str1);
-  FTEST (str0);
-  FTEST (strNull);
-  FTEST (strSpace);
+
+  FTEST (str35, chrA);
+  FTEST (str35, chra);
+
+  FTEST (str35, chrNewLine);
+  FTEST (str35, chrNull);
+
+  FTEST (strNull, chrNull);
+  FTEST (strSpace, ' ');
+  FTEST (strSpace, chrNull);
 
   /* reference to a null-character */
-  FTEST (&chrNull);
+  FTEST (&chrNull, chrA);
+  FTEST (&chrNull, chrNull);
 
-  FTEST ("Hello, test!");
-  FTEST ("This string contains \n new line");
-  FTEST ("This string contains a smile :)");
+  FTEST ("Hello, test!", 'l');
+
+  FTEST ("This string contains \n new line", '\n');
+  FTEST ("This string contains a smile :)", ')');
 
   /* uncomment the line below to produce a "Run Failed!" error with test.py */
-  /* FTEST (NULL); */
+  /* FTEST ((const char *)NULL,'A'); */
+
   /* uncomment the line below to produce a "Build Failed!" error with test.py */
-  /* FTEST (SOMETHING_STUPID_AND_NOT_DEFINED); */
+  /* FTEST (BUILD_ERROR_PLEASE,'X'); */
 
   return;
 }
