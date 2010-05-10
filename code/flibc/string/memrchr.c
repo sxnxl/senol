@@ -33,6 +33,11 @@ _f_memrchr (const void *s, int c, size_t n)
   for (; n && *s_byte != c; n--, s_byte--)
     ;
 
+  /* This is a temporary solution for BUG #1 */
+  /* TODO: replace this with a smarter one */
+  if (n == 0 && *(s_byte - 1) != c)
+    return NULL;
+
   /* if found then return pointer to byte, else return NULL */
   return (*s_byte == c) ? (void *) s_byte : NULL;
 }

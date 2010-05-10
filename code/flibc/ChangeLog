@@ -1,3 +1,7 @@
+2010-05-10  Şenol Korkmaz  <mail@senolkorkmaz.info>
+
+	* string/memrchr.c: FIXED BUG #1.
+
 2010-05-06  Şenol Korkmaz  <mail@senolkorkmaz.info>
 
 	* tests/: Add file test.py
