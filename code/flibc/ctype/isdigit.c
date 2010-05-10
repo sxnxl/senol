@@ -22,4 +22,4 @@
 #include "fstring.h"
 #include "ffake.h"
 
-/* $Id: draft.c 28 2010-05-07 12:55:02Z senol.korkmaz $ */
+/* $Id$ */

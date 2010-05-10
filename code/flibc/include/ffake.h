@@ -33,3 +33,4 @@ typedef unsigned long _f_size_t;
 #endif
 
 #endif /* _FFAKE_H */
+/* $Id$ */

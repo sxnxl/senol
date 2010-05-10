@@ -112,4 +112,4 @@ main (int argc, char **argv)
   exit (EXIT_SUCCESS);
 }
 
-/* $Id: test.c 23 2010-04-27 15:59:04Z senol.korkmaz $ */
+/* $Id$ */
