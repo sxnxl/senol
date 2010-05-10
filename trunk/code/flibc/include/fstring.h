@@ -112,3 +112,4 @@ extern char *_f_strstr(const char *haystack, const char *needle);
 */
 
 #endif /* _FSTRING_H */
+/* $Id$ */
