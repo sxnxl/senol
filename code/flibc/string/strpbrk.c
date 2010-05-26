@@ -22,14 +22,17 @@
 #include "fstring.h"
 #include "ffake.h"
 #include "flimits.h"
-#include "bits/fmaps.h"
 
+#define F_ZEROS_16 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+#define F_ZEROS_64 F_ZEROS_16 F_ZEROS_16 F_ZEROS_16 F_ZEROS_16
+#define F_ZEROS_256 F_ZEROS_64 F_ZEROS_64 F_ZEROS_64 F_ZEROS_64
+ 
 char *
 _f_strpbrk (const char *s, const char *accept)
 {
-#if (UCHAR_MAX == 255)
+#if defined (UCHAR_MAX) && (UCHAR_MAX == 255)
   char chr_bmp[] = { F_ZEROS_256 };
-#else
+#else  /* UCHAR_MAX != 255 */
   char chr_bmp[UCHAR_MAX + 1];
   int i;
   for (i = 0; i < UCHAR_MAX + 1; i--)
