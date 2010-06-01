@@ -1,49 +1,31 @@
-#ifdef L_memalign
+/*  memalign - Allocate aligned memory
 
-#include <bits/uClibc_mutex.h>
-__UCLIBC_MUTEX_INIT (__malloc_lock, PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP);
-#define __MALLOC_LOCK		__UCLIBC_MUTEX_LOCK(__malloc_lock)
-#define __MALLOC_UNLOCK		__UCLIBC_MUTEX_UNLOCK(__malloc_lock)
+    Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
 
-/* List of blocks allocated with memalign or valloc */
-struct alignlist
-{
-  struct alignlist *next;
-  __ptr_t aligned;		/* The address that memaligned returned.  */
-  __ptr_t exact;		/* The address that malloc returned.  */
-};
-struct alignlist *_aligned_blocks;
+    This file is part of flibc.
 
-/* Return memory to the heap. */
-int
-__libc_free_aligned (void *ptr)
-{
-  struct alignlist *l;
+    flibc is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
 
-  if (ptr == NULL)
-    return 0;
+    flibc is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
 
-  __MALLOC_LOCK;
-  for (l = _aligned_blocks; l != NULL; l = l->next)
-    {
-      if (l->aligned == ptr)
-	{
-	  /* Mark the block as free */
-	  l->aligned = NULL;
-	  ptr = l->exact;
-	  ptr -= sizeof (size_t);
-	  munmap (ptr, *(size_t *) ptr + sizeof (size_t));
-	  return 1;
-	}
-    }
-  __MALLOC_UNLOCK;
-  return 0;
-}
+    You should have received a copy of the GNU Lesser General Public License
+    along with flibc.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#include "fmalloc.h"
+#include "ffake.h"
 
 void *
-memalign (size_t alignment, size_t size)
+memalign (size_t boundary, size_t size)
 {
-  void *result;
+  void *ptr;
   unsigned long int adj;
 
   result = malloc (size + alignment - 1);
@@ -53,7 +35,7 @@ memalign (size_t alignment, size_t size)
   adj =
     (unsigned long
      int) ((unsigned long int) ((char *) result - (char *) NULL)) % alignment;
-  if (adj != 0)
+  if (adj)
     {
       struct alignlist *l;
       __MALLOC_LOCK;
@@ -81,4 +63,5 @@ memalign (size_t alignment, size_t size)
 
   return result;
 }
-#endif
+
+/* $Id$ */
