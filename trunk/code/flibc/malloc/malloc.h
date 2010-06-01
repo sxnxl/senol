@@ -1,5 +1,5 @@
-/*  free - Allocate and free dynamic memory 
-
+/*  malloc.h - calloc, malloc, free, realloc - Allocate and free dynamic memory
+	     - memalign, valloc - Allocate aligned memory
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
 
@@ -19,27 +19,33 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <malloc.h>
-#include <fake.h>
+#ifndef _MALLOC_H
+#define _MALLOC_H	1
 
-#undef free 
+#define __MEM_MALLOC 	1
+#define __MEM_ZEROED 	2
+#define __MEM_ALIGNED	4
 
-void
-free (void *ptr)
+#define __MEMINFO_SIZE (sizeof(struct __meminfo))
+
+#define __info2chunk(info) ((void *)info - info->padding)
+#define __mem2info(ptr) ((struct __meminfo *) (ptr - __MEMINFO_SIZE))
+
+extern void *calloc(size_t nmemb, size_t size);
+extern void *malloc(size_t size);
+extern void free(void *ptr);
+extern void *realloc(void *ptr, size_t size);
+extern void *valloc(size_t size);
+extern void *memalign(size_t boundary, size_t size);
+
+struct __meminfo
 {
-  struct __meminfo *info;
-  void *chunk;
-
-  /* get a pointer to __meminfo part of chunk */
-  info = mem2info(ptr);
-
-  /* get a pointer to beginning of chunk */
-  chunk = info2chunk(info);
-
-  /* unmap using munmap */
-  /* total size of chunk is (info->size + info->padding + __MEMINFO_SIZE) */
-  if (ptr && (info->flags & __MEM_MALLOC))
-    munmap (chunk, info->size + info->padding + __MEMINFO_SIZE);
+	unsigned int flags;
+	size_t padding;
+	size_t alignment;
+	size_t size;
 }
+
+#endif /* malloc.h */
 
 /* $Id$ */
