@@ -2,7 +2,7 @@
     Based on P.J. Plauger's implementation. (The Standard C Library, 1992)
     
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
-    Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
+    Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
 
     This file is part of flibc.
 
