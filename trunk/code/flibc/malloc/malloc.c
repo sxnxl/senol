@@ -19,9 +19,9 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <fake.h>
 #include <sys/mman.h>
 #include <malloc.h>
-#include <fake.h>
 
 #undef malloc
 
@@ -33,11 +33,11 @@ malloc (size_t size)
 
   /* map memory to our virtual address space */
   if (size)
-    ptr = mmap (NULL, size + sizeof(struct __meminfo),
-	      PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    ptr = mmap (NULL, size + sizeof (struct __meminfo),
+		PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 
-  /* If size is 0, then return a NULL pointer, 	      */
-  /* return null if memory mapping failed */
+  /* If size is 0, then return a NULL pointer,        */
+  /* then return null if memory mapping failed,       */
   /* that can later be successfully passed to free(). */
   if (ptr == MAP_FAILED || !size)
     return NULL;
@@ -46,12 +46,12 @@ malloc (size_t size)
   ptr += __MEMINFO_SIZE;
 
   /* get a pointer to __meminfo part of memory */
-  info = __mem2info(ptr);
-  
+  info = __mem2info (ptr);
+
   /* fill __meminfo */
   info->flags = __MEM_MALLOC;
   info->size = size;
-  
+
   /* memory is not aligned, so no padding and alignment */
   info->padding = 0;
   info->alignment = 0;

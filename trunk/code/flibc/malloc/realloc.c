@@ -1,4 +1,4 @@
-/*  realloc - Allocate and free dynamic memory 
+/*  realloc - Grow or shrink dynamically allocated memory
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
@@ -19,89 +19,56 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "fmalloc.h"
-#include "ffake.h"
+#include <fake.h>
+#include <string.h>
+#include <malloc.h>
 
-#define __f_diff_size(sz1,sz2) ((size_t)((sz1>sz2)?sz1-sz2:sz2-sz1))
+#undef realloc
 
 void *
 realloc (void *ptr, size_t size)
 {
-  size_t size_i = 0;
-  size_t size_diff;
-
-  struct _f_malloc_info *info_old = NULL;
-  struct _f_malloc_info *info_new = NULL;
-
   void *ptr_new = NULL;
   void *ptr_old = ptr;
+  struct __meminfo *info_new = NULL;
+  struct __meminfo *info_old = NULL;
+  size_t size_i = 0;
 
-  bool need_alloc;
-  bool need_free;
-
-  bool have_old = (ptr_old == NULL) ? false : true;
-
-  if (have_old)
+  if (!size)
     {
-      info_old = (struct _f_malloc_info *)
-	(((char *) ptr_old) - sizeof (_f_malloc_info));
-      size_diff = __f_diff_size (size, info_old->size);
-    }
-  else
-    {
-      size_diff = size;
+      free (ptr_old);
+      return NULL;
     }
 
-  if (size && size_diff)
-    need_alloc = true;
-  else
-    need_alloc = false;
+  if (!ptr_old)
+    return malloc (size);
 
-  if (have_old && need_alloc)
-    need_free = true;
-  else
-    need_free = false;
+  info_old = __mem2info (ptr_old);
 
-  /* malloc */
-  if (need_alloc)
+  if (info_old->flags & __MEM_MEMALIGN)
+    ptr_new = memalign (info_old->alignment, size);
+  else
+    ptr_new = malloc (size);
+
+  if (!ptr_new)
+    return NULL;
+
+  info_new = __mem2info (ptr_new);
+
+  if (info_new->size > info_old->size)
     {
-      ptr_new = mmap (NULL, size + sizeof (struct _f_malloc_info),
-		      PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, 0,
-		      0);
-
-      if (ptr_new == MAP_FAILED || ptr_new == NULL)
-	return NULL;
-
-      info_new = (struct _f_malloc_info *) ptr_new;
-
-      info_new->type = (have_old)?info_old->type:_F_MEM_MALLOC;
-      info_new->head = ptr_new;
-      info_new->padding = 0; /* TODO: padding memaligned mem */
-      info_new->size = size;
-
-      ptr_new =
-	(void *) (((char *) ptr_new) + sizeof (struct _f_malloc_info));
-      /* malloc */
-
-      /* memcpy */
-      if (have_old)
-        for (size_i = 0; size_i < size_diff; size_i++)
-	  *(((char *) ptr_new) + size_i) = *(((char *) ptr) + size_i);
-
-      if (info_new->type & _F_MEM_ZEROED)
-	for (size_i = (have_old)?size_diff:0 ; size_i < info_new->size; size_i++)
-	  *(((char *) ptr_new) + size_i) = 0;
-      /* memcpy */
+      memcpy (ptr_new, ptr_old, info_old->size);
+      if (info_old->flags & __MEM_CALLOC)
+	{
+	  memset ((void *) ((char *) ptr_new + info_old->size), 0,
+		  info_new->size - info_old->size);
+	  info_new->flags |= __MEM_CALLOC;
+	}
     }
+  else
+    memcpy (ptr_new, ptr_old, info_new->size);
 
-  /* free */
-
-  if (need_free && have_old)
-    munmap (info_old->head,
-	    info_old->size + info_old->padding + sizeof (_f_maloc_info));
-  /* free */
-
-  return ptr_new;
+  return ptr;
 }
 
 /* $Id$ */
