@@ -69,6 +69,15 @@
 --- localeconv
 --- setlocale
 
+- malloc.h
++-- calloc
++-- malloc
++-- free
++-- realloc
++-- posix_memalign
++-- memalign
++-- valloc
+
 - math.h
 --- acos
 --- asin
@@ -166,7 +175,6 @@
 --- getenv
 --- ldiv
 --- ltoa (non-standard)
---- malloc, calloc, and realloc
 --- qsort
 --- rand
 --- srand
