@@ -1,4 +1,4 @@
-/*  ffake.h - System spesific limits
+/*  valloc - Allocate aligned memory
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
@@ -19,10 +19,16 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _FLIMITS_H
-#define _FLIMITS_H
+#include <fake.h>
+#include <unistd.h>
+#include <malloc.h>
 
-#include <limits.h>
+#undef valloc
 
-#endif /* _FLIMITS_H */
+void *
+valloc (size_t size)
+{
+  return memalign(sysconf(_SC_PAGESIZE),size);
+}
+
 /* $Id$ */

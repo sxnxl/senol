@@ -1,5 +1,5 @@
-/*  malloc.h - calloc, malloc, free, realloc - Allocate and free dynamic memory
-	     - memalign, valloc - Allocate aligned memory
+/*  malloc.h - calloc, malloc, free, realloc    - Allocate and free dynamic memory
+             - posix_memalign, memalign, valloc - Allocate aligned memory
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
 
@@ -23,29 +23,30 @@
 #define _MALLOC_H	1
 
 #define __MEM_MALLOC 	1
-#define __MEM_ZEROED 	2
-#define __MEM_ALIGNED	4
+#define __MEM_CALLOC 	2
+#define __MEM_MEMALIGN	4
 
 #define __MEMINFO_SIZE (sizeof(struct __meminfo))
 
 #define __info2chunk(info) ((void *)info - info->padding)
 #define __mem2info(ptr) ((struct __meminfo *) (ptr - __MEMINFO_SIZE))
 
-extern void *calloc(size_t nmemb, size_t size);
-extern void *malloc(size_t size);
-extern void free(void *ptr);
-extern void *realloc(void *ptr, size_t size);
-extern void *valloc(size_t size);
-extern void *memalign(size_t boundary, size_t size);
+extern void *calloc (size_t nmemb, size_t size);
+extern void *malloc (size_t size);
+extern void free (void *ptr);
+extern void *realloc (void *ptr, size_t size);
+extern int posix_memalign(void **memptr, size_t alignment, size_t size);
+extern void *memalign (size_t boundary, size_t size);
+extern void *valloc (size_t size);
 
 struct __meminfo
 {
-	unsigned int flags;
-	size_t padding;
-	size_t alignment;
-	size_t size;
+  unsigned int flags;
+  size_t padding;
+  size_t alignment;
+  size_t size;
 }
 
-#endif /* malloc.h */
+#endif				/* malloc.h */
 
 /* $Id$ */

@@ -1,4 +1,4 @@
-/*  calloc - Allocate and free dynamic memory 
+/*  calloc - Allocate dynamic memory and set to zero
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
@@ -19,11 +19,9 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <string.h>
+#include <fake.h>
 #include <errno.h>
 #include <malloc.h>
-
-#include <fake.h>
 
 #undef calloc
 
@@ -33,42 +31,24 @@ calloc (size_t nmemb, size_t lsize)
   void *ptr;
   struct __meminfo *info;
   size_t size = lsize * nmemb;
+  size_t size_i;
 
+  /* if size overflow occurs, then set errno to ENOMEM and return NULL */
   if (nmemb && lsize != (size / nmemb))
     {
       set_errno (ENOMEM);
       return NULL;
     }
 
-/* malloc */
-  if (size)
-    ptr = mmap (NULL, size + sizeof(struct __meminfo),
-	      PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+  /* allocate memory */
+  ptr = malloc (size);
 
-  /* If size is 0, then return a NULL pointer, 	      */
-  /* return null if memory mapping failed */
-  /* that can later be successfully passed to free(). */
-  if (ptr == MAP_FAILED || !size)
-    return NULL;
+  /* get pointer to info part of memory */
+  info = __mem2info (prt);
 
-  /* shift pointer from head of chunk to usable memory space */
-  ptr += __MEMINFO_SIZE;
-
-  /* get a pointer to __meminfo part of memory */
-  info = __mem2info(ptr);
-  
-  /* fill __meminfo */
-  info->flags = __MEM_MALLOC;
-  info->size = size;
-  
-  /* memory is not aligned, so no padding and alignment */
-  info->padding = 0;
-  info->alignment = 0;
-/* malloc */
-
-  /* initialize memory content to zero, like memset(ptr,0,size) does */
-  for (i = 0; i < size; i++)
-    *(((char *) ptr) + i) = 0;
+  /* fill memory with zeros and set __MEM_CALLOC flag */
+  memset (ptr, 0, info->size);
+  info->flags |= __MEM_CALLOC;
 
   return ptr;
 }

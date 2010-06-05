@@ -1,4 +1,4 @@
-/*  free - Allocate and free dynamic memory 
+/*  free - Free dynamic memory
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
@@ -19,10 +19,11 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <malloc.h>
 #include <fake.h>
+#include <sys/mman.h>
+#include <malloc.h>
 
-#undef free 
+#undef free
 
 void
 free (void *ptr)
@@ -30,15 +31,18 @@ free (void *ptr)
   struct __meminfo *info;
   void *chunk;
 
+  if (!ptr)
+    return;
+
   /* get a pointer to __meminfo part of chunk */
-  info = mem2info(ptr);
+  info = __mem2info (ptr);
 
-  /* get a pointer to beginning of chunk */
-  chunk = info2chunk(info);
+  /* get a pointer to the beginning of chunk */
+  chunk = __info2chunk (info);
 
-  /* unmap using munmap */
+  /* remove mapping using munmap */
   /* total size of chunk is (info->size + info->padding + __MEMINFO_SIZE) */
-  if (ptr && (info->flags & __MEM_MALLOC))
+  if (info->flags & __MEM_MALLOC)
     munmap (chunk, info->size + info->padding + __MEMINFO_SIZE);
 }
 

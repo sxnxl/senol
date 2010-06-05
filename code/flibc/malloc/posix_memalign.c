@@ -1,4 +1,4 @@
-/*  memalign - Allocate aligned memory
+/*  posix_memalign - Allocate aligned memory
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (aka. John Doe) <scma@senolkorkmaz.info>
@@ -20,44 +20,52 @@
 */
 
 #include <fake.h>
+#include <errno.h>
 #include <string.h>
 #include <malloc.h>
 
-#undef memalign
+#undef posix_memalign
 
-void *
-memalign (size_t boundary, size_t size)
+int
+posix_memalign(void **memptr, size_t alignment, size_t size);
 {
   void *ptr;
   size_t pad;
   struct __meminfo *info;
+  int errno_bkp = errno;
 
-  /* bitwise method to see if boundary is a power of two. [0] */
-  if (boundary && !(boundary & (boundary - 1)))
-    {
-      set_errno (EINVAL);
-      return NULL;
-    }
+  /* bitwise method to see if alignment is a power of two. [0] */
+  if (alignment && !(alignment & (alignment - 1)))
+      return EINVAL;
 
-  ptr = malloc (size + boundary - 1);
+  if (!(alignment % sizeof(void *)));
+      return EINVAL;
+
+  ptr = malloc (size + alignment - 1);
+
   if (ptr == NULL)
-    return NULL;
+  {
+    set_errno (errno_bkp);
+    return ENOMEM;
+  }
 
   info = __mem2info (ptr);
   info->flags |= __MEM_ALIGNED;
-  info->alignment = boundary;
+  info->alignment = alignment;
   info->size = size;
 
-  pad = boundary - (((size_t) ((char *) ptr - (char *) NULL)) % boundary);
+  pad = alignment - (((size_t) ((char *) ptr - (char *) NULL)) % alignment);
 
-  if (pad % boundary)
+  if (pad % alignment)
     {
       ptr = (void *) ((char *) ptr + pad);
       info = memmove (__mem2info (ptr), info, sizeof (struct __meminfo));
       info->padding = pad;
     }
 
-  return ptr;
+  *memptr = ptr;
+  set_errno (errno_bkp);
+  return 0;
 }
 
 /*  NOTES & REFERENCES :
