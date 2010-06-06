@@ -18,11 +18,11 @@
     You should have received a copy of the GNU Lesser General Public License
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "fstring.h"
-#include "ffake.h"
+#include <string.h>
+#include <fake.h>
 
 char *
-_f_strrchr (const char *s, int c)
+strrchr (const char *s, int c)
 {
   const char *last = NULL;
 

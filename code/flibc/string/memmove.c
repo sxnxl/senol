@@ -19,12 +19,12 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "fstring.h"
-#include "ffake.h"
+#include <string.h>
+#include <fake.h>
 
 /* memmove handles memory overlaps */
 void *
-_f_memmove (void *dest, const void *src, size_t n)
+memmove (void *dest, const void *src, size_t n)
 {
   /* use char pointers to move byte-by-byte */
   unsigned char *dest_byte = dest;

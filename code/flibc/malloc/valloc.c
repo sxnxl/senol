@@ -28,7 +28,7 @@
 void *
 valloc (size_t size)
 {
-  return memalign(sysconf(_SC_PAGESIZE),size);
+  return memalign (sysconf (_SC_PAGESIZE), size);
 }
 
 /* $Id$ */

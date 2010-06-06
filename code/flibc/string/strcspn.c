@@ -19,13 +19,13 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "fstring.h"
-#include "ffake.h"
+#include <string.h>
+#include <fake.h>
 #include "flimits.h"
 #include "bits/fmaps.h"
 
 size_t
-_f_strcspn (const char *s, const char *reject)
+strcspn (const char *s, const char *reject)
 {
   size_t len = 0;
 

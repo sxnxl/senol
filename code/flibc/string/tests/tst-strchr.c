@@ -25,7 +25,7 @@
 #include <stdlib.h>
 
 #ifdef TEST_USING_FSTRING	/* want to use flibc ? */
-# include "fstring.h"		/* use flibc */
+# include <string.h>		/* use flibc */
 # else
 # include <string.h>		/* otherwise use stdlibc */
 #endif

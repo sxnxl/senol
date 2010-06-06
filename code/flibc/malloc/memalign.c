@@ -20,6 +20,7 @@
 */
 
 #include <fake.h>
+#include <errno.h>
 #include <string.h>
 #include <malloc.h>
 
@@ -44,7 +45,7 @@ memalign (size_t boundary, size_t size)
     return NULL;
 
   info = __mem2info (ptr);
-  info->flags |= __MEM_ALIGNED;
+  info->flags |= __MEM_MEMALIGN;
   info->alignment = boundary;
   info->size = size;
 

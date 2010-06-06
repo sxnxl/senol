@@ -19,11 +19,11 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "fstring.h"
-#include "ffake.h"
+#include <string.h>
+#include <fake.h>
 
 void *
-_f_memrchr (const void *s, int c, size_t n)
+memrchr (const void *s, int c, size_t n)
 {
   const char *s_byte = s;	/* use char pointer to move byte-by-byte */
   s_byte += n - 1;		/* increase pointer to nth byte */

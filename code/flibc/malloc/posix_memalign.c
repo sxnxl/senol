@@ -27,7 +27,7 @@
 #undef posix_memalign
 
 int
-posix_memalign(void **memptr, size_t alignment, size_t size);
+posix_memalign (void **memptr, size_t alignment, size_t size)
 {
   void *ptr;
   size_t pad;
@@ -36,21 +36,21 @@ posix_memalign(void **memptr, size_t alignment, size_t size);
 
   /* bitwise method to see if alignment is a power of two. [0] */
   if (alignment && !(alignment & (alignment - 1)))
-      return EINVAL;
+    return EINVAL;
 
-  if (!(alignment % sizeof(void *)));
-      return EINVAL;
+  if (!(alignment % sizeof (void *)));
+  return EINVAL;
 
   ptr = malloc (size + alignment - 1);
 
   if (ptr == NULL)
-  {
-    set_errno (errno_bkp);
-    return ENOMEM;
-  }
+    {
+      set_errno (errno_bkp);
+      return ENOMEM;
+    }
 
   info = __mem2info (ptr);
-  info->flags |= __MEM_ALIGNED;
+  info->flags |= __MEM_MEMALIGN;
   info->alignment = alignment;
   info->size = size;
 

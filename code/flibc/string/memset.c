@@ -19,11 +19,11 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "fstring.h"
-#include "ffake.h"
+#include <string.h>
+#include <fake.h>
 
 void *
-_f_memset (void *s, int c, size_t n)
+memset (void *s, int c, size_t n)
 {
   /* use char pointer to move byte-by-byte */
   char *s_byte = (char *) s;

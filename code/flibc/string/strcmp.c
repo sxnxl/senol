@@ -20,11 +20,11 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "fstring.h"
-#include "ffake.h"
+#include <string.h>
+#include <fake.h>
 
 int
-_f_strcmp (const char *s1, const char *s2)
+strcmp (const char *s1, const char *s2)
 {
   /* loop until find first non-matching characters of s1 and s2 */
   for (; *s1 == *s2 && *s1; s1++, s2++)

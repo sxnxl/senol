@@ -19,8 +19,8 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "fstring.h"
-#include "ffake.h"
+#include <string.h>
+#include <fake.h>
 #include "flimits.h"
 
 #define F_ZEROS_16   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
@@ -28,7 +28,7 @@
 #define F_ZEROS_256  F_ZEROS_64, F_ZEROS_64, F_ZEROS_64, F_ZEROS_64
 
 size_t
-_f_strspn (const char *s, const char *accept)
+strspn (const char *s, const char *accept)
 {
   size_t len = 0;
 

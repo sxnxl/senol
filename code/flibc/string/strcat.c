@@ -19,11 +19,11 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "fstring.h"
-#include "ffake.h"
+#include <string.h>
+#include <fake.h>
 
 char *
-_f_strcat (char *dest, const char *src)
+strcat (char *dest, const char *src)
 {
   char *dest_byte = dest;
 
