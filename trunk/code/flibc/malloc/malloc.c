@@ -19,11 +19,11 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <fake.h>
+#include "fake.h"
 #include <sys/mman.h>
-#include <malloc.h>
+#include "malloc.h"
 
-#undef malloc
+//#undef malloc
 
 void *
 malloc (size_t size)

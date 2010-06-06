@@ -32,7 +32,6 @@ realloc (void *ptr, size_t size)
   void *ptr_old = ptr;
   struct __meminfo *info_new = NULL;
   struct __meminfo *info_old = NULL;
-  size_t size_i = 0;
 
   if (!size)
     {

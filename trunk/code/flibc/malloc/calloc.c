@@ -21,6 +21,7 @@
 
 #include <fake.h>
 #include <errno.h>
+#include <string.h>
 #include <malloc.h>
 
 #undef calloc
@@ -31,7 +32,6 @@ calloc (size_t nmemb, size_t lsize)
   void *ptr;
   struct __meminfo *info;
   size_t size = lsize * nmemb;
-  size_t size_i;
 
   /* if size overflow occurs, then set errno to ENOMEM and return NULL */
   if (nmemb && lsize != (size / nmemb))
@@ -44,7 +44,7 @@ calloc (size_t nmemb, size_t lsize)
   ptr = malloc (size);
 
   /* get pointer to info part of memory */
-  info = __mem2info (prt);
+  info = __mem2info (ptr);
 
   /* fill memory with zeros and set __MEM_CALLOC flag */
   memset (ptr, 0, info->size);

@@ -19,13 +19,13 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "fstring.h"
-#include "ffake.h"
+#include <string.h>
+#include <fake.h>
 
 /* memcpy does not care about memory overlaps,
  * use memmove for overlaping memory areas */
 void *
-_f_memcpy (void *dest, const void *src, size_t n)
+memcpy (void *dest, const void *src, size_t n)
 {
   /* use char pointers to move byte-by-byte */
   unsigned char *dest_byte = dest;

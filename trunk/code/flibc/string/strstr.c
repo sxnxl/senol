@@ -19,11 +19,11 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "fstring.h"
-#include "ffake.h"
+#include <string.h>
+#include <fake.h>
 
 char *
-_f_strstr (const char *haystack, const char *needle)
+strstr (const char *haystack, const char *needle)
 {
   char *haystack_last = haystack;
   char *haystack_p = haystack;

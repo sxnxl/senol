@@ -1,4 +1,4 @@
-/*  ffake.h - Some fake macros
+/*  fake.h - Some fake macros
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -19,18 +19,21 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _FFAKE_H
-#define _FFAKE_H
+#ifndef _FAKE_H
+#define _FAKE_H     1
 
-#ifndef size_t
-#define size_t _f_size_t
-typedef unsigned long _f_size_t;
-#endif
+#include <features.h>
+#include <stddef.h>
 
-#ifndef NULL
-#define NULL _f_NULL
-#define _f_NULL ((void *)0)
-#endif
+/* C++ needs to know that types and declarations are C, not C++.  */
+#ifdef __cplusplus
+# define __BEGIN_DECLS  extern "C" {
+# define __END_DECLS    }
+#else
+# define __BEGIN_DECLS
+# define __END_DECLS
+#endif /* __cplusplus */
 
-#endif /* _FFAKE_H */
+#endif /* fake.h */
+
 /* $Id$ */

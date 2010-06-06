@@ -38,41 +38,41 @@ tests: prep std_strlen f_strlen std_memchr  f_memchr  std_strchr  f_strchr \
                                 std_memrchr f_memrchr std_strrchr f_strrchr
 
 std_strlen:
-		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixStd)libc/tst-strlen tst-strlen.c $(SRC_DIR)strlen.c
+		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixStd)libc/tst-strlen tst-strlen.c
 
 f_strlen:
 		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixFlibc)libc/tst-strlen \
-		tst-strlen.c $(SRC_DIR)strlen.c -DTEST_USING_FSTRING
+		tst-strlen.c $(SRC_DIR)strlen.c
 
 std_memchr:
-		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixStd)libc/tst-memchr tst-memchr.c $(SRC_DIR)memchr.c
+		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixStd)libc/tst-memchr tst-memchr.c
 
 f_memchr:
 		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixFlibc)libc/tst-memchr \
-		tst-memchr.c $(SRC_DIR)memchr.c -DTEST_USING_FSTRING
+		tst-memchr.c $(SRC_DIR)memchr.c
 
 std_strchr:
-		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixStd)libc/tst-strchr tst-strchr.c $(SRC_DIR)strchr.c
+		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixStd)libc/tst-strchr tst-strchr.c
 
 f_strchr:
 		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixFlibc)libc/tst-strchr \
-		tst-strchr.c $(SRC_DIR)strchr.c -DTEST_USING_FSTRING
+		tst-strchr.c $(SRC_DIR)strchr.c
 
 std_memrchr:
-		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixStd)libc/tst-memrchr tst-memrchr.c $(SRC_DIR)memrchr.c \
-		-D_GNU_SOURCE  
+		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixStd)libc/tst-memrchr tst-memrchr.c \
+		-D_GNU_SOURCE
 		# memrchr function is a gnu extension so define _GNU_SOURCE
 
 f_memrchr:
 		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixFlibc)libc/tst-memrchr \
-		tst-memrchr.c $(SRC_DIR)memrchr.c -DTEST_USING_FSTRING
+		tst-memrchr.c $(SRC_DIR)memrchr.c
 
 std_strrchr:
-		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixStd)libc/tst-strrchr tst-strrchr.c $(SRC_DIR)strrchr.c
+		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixStd)libc/tst-strrchr tst-strrchr.c
 
 f_strrchr:
 		$(CXX) $(CXXFLAGS) -o $(binDir)$(prefixFlibc)libc/tst-strrchr \
-		tst-strrchr.c $(SRC_DIR)strrchr.c -DTEST_USING_FSTRING
+		tst-strrchr.c $(SRC_DIR)strrchr.c
 
 prep:
 		mkdir -p $(binDir) $(binDir)$(prefixStd)libc/ $(binDir)$(prefixFlibc)libc/

@@ -1,4 +1,4 @@
-/*  string.h - String functions header file
+/*  string.h - String manipulation functions
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -19,97 +19,95 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <ffake.h>
+#include <fake.h>
 
 #ifndef _FSTRING_H
-#define _FSTRING_H
+#define _FSTRING_H  1
 
+__BEGIN_DECLS
+
+/* strlen - calculate the length of a string */
 #undef strlen
-#define strlen(str) _f_strlen(str)
-extern size_t _f_strlen (const char *);
+extern size_t strlen (const char *s);
 
+/* memchr - scan memory for a character */
 #undef memchr
-#define  memchr(s,c,n) _f_memchr(s,c,n)
-extern void *_f_memchr (const void *, int, size_t);
+extern void *memchr(const void *s, int c, size_t n);
 
+/* memrchr - scan memory for a character */
 #undef memrchr
-#define  memrchr(s,c,n) _f_memrchr(s,c,n)
-extern void *_f_memrchr (const void *, int, size_t);
+extern void *memrchr(const void *s, int c, size_t n);
 
+/* memcmp - compare memory areas */
 #undef memcmp
-#define memcmp(s,c,n) _f_memcmp(s,c,n)
-extern int _f_memcmp (const void *, const void *, size_t);
+extern int memcmp(const void *s1, const void *s2, size_t n);
 
+/* memcpy - copy memory area */
 #undef memcpy
-#define memcpy(d,s,n) _f_memcpy(d,s,n)
-extern void *_f_memcpy (void *, const void *, size_t);
+extern void *memcpy(void *dest, const void *src, size_t n);
 
+/* memmove - copy memory area */
 #undef memmove
-#define memmove(d,s,n) _f_memmove(d,s,n)
-extern void *_f_memove (void *, const void *, size_t);
+extern void *memmove(void *dest, const void *src, size_t n);
 
+/* memset - fill memory with a constant byte */
 #undef memset
-#define memset(s,c,n) _f_memset(s,c,n)
-extern void *_f_memset (void *, int, size_t);
+extern void *memset(void *s, int c, size_t n);
 
+/* strcat - concatenate two strings */
 #undef strcat
-#define strcat(d,s) _f_strcat(d,s)
-extern char *_f_strcat (char *, const char *);
+extern char *strcat(char *dest, const char *src);
 
+/* strncat - concatenate two strings */
 #undef strncat
-#define strncat(d,s,n) _f_strcat(d,s,n)
-extern char *_f_strncat (char *, const char *, size_t);
+extern char *strncat(char *dest, const char *src, size_t n);
 
+/* strchr - locate character in string */
 #undef strchr
-#define strchr(s,c) _f_strchr(s,c)
-extern char *_f_strchr (const char *, int);
+extern char *strchr(const char *s, int c);
 
+/* strrchr - locate character in string */
 #undef strrchr
-#define strrchr(s,c) _f_strrchr(s,c)
-extern char *_f_strrchr (const char *, int);
+extern char *strrchr(const char *s, int c);
 
+/* strcmp - compare two strings */
 #undef strcmp
-#define strcmp(s,t) _f_strcmp(s,t)
-extern int _f_strcmp (const char *, const char *);
+extern int strcmp(const char *s1, const char *s2);
 
+/* strncmp - compare two strings */
 #undef strncmp
-#define strncmp(s,t,n) _f_strncmp(s,t,n)
-extern int _f_strncmp (const char *, const char *, size_t);
+extern int strncmp(const char *s1, const char *s2, size_t n);
 
+/* strcoll - compare two strings using the current locale */
 #undef strcoll
-#define strcoll(s1,s2) _f_strcoll(s1,s2)
-extern int _f_strcoll(const char *s1, const char *s2);
+extern int strcoll(const char *s1, const char *s2);
 
+/* strcpy - copy a string */
 #undef strcpy
-#define strcpy(dest,src) _f_strcpy(dest,src)
-extern char *_f_strcpy(char *dest, const char *src);
+extern char *strcpy(char *dest, const char *src);
 
+/* strncpy - copy a string */
 #undef strncpy
-#define strncpy(dest,src,n) _f_strcpy(dest,src,n)
-extern char *_f_strncpy(char *dest, const char *src, size_t n);
+extern char *strncpy(char *dest, const char *src, size_t n);
 
+/* strspn - search a string for a set of characters */
 #undef strspn
-#define strspn(s,accept) _f_strspn(s,accept)
-extern size_t _f_strspn(const char *s, const char *accept);
+extern size_t strspn(const char *s, const char *accept);
 
+/* strcspn - search a string for a set of characters */
 #undef strcspn
-#define strcspn(s,reject) _f_strcspn(s,reject)
-extern size_t _f_strcspn(const char *s, const char *reject);
+extern size_t strcspn(const char *s, const char *reject);
 
+/* strpbrk - search a string for any of a set of characters */
 #undef strpbrk
-#define strpbrk(s,accept) _f_strpbrk(s,accept)
-extern char *_f_strpbrk(const char *s, const char *accept);
+extern char *strpbrk(const char *s, const char *accept);
 
+/* strstr - locate a substring */
 #undef strstr
-#define strstr(haystack,needle) _f_strstr(haystack,needle)
-extern char *_f_strstr(const char *haystack, const char *needle);
+extern char *strstr(const char *haystack, const char *needle);
 
-/* TODO
-- string.h
---- strerror
---- strtok
---- strxfrm
-*/
+__END_DECLS
 
-#endif /* _FSTRING_H */
+#endif /* string.h */
+
 /* $Id$ */
