@@ -70,13 +70,13 @@
 --- setlocale
 
 - malloc.h
-+-- calloc
-+-- malloc
-+-- free
+++- calloc
+++- malloc
+++- free
 +-- realloc
 +-- posix_memalign
-+-- memalign
-+-- valloc
+++- memalign
+++- valloc
 
 - math.h
 --- acos
@@ -184,7 +184,8 @@
 --- system
 
 - string.h
-++* memchr, memrchr
++++ memchr
+++* memrchr
 ++- memcmp
 ++- memcpy
 ++- memmove

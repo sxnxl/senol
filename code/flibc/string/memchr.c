@@ -19,8 +19,8 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <string.h>
 #include <fake.h>
+#include <string.h>
 
 void *
 memchr (const void *s, int c, size_t n)
@@ -29,12 +29,12 @@ memchr (const void *s, int c, size_t n)
   const unsigned char *s_byte = s;
 
   /* loop n times until find c in s
-   * and increase pointer for next byte */
+     and increase pointer for next byte */
   for (; n && *s_byte != c; n--, s_byte++)
     ;
 
-  /* If n is zero, that means there is no c found in the first n bytes of s */
-  /* if found then return pointer to byte, otherwise return NULL */
+  /* If n is zero, that means there is no c found in the first n bytes of s,
+     if found then return pointer to byte, otherwise return NULL */
   return (n == 0) ? NULL : (void *) s_byte;
 }
 

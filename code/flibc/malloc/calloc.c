@@ -43,14 +43,14 @@ calloc (size_t nmemb, size_t lsize)
   /* allocate memory */
   ptr = malloc (size);
 
-  /* get pointer to info part of memory */
+  /* get pointer to info part of chunk */
   info = __mem2info (ptr);
 
   /* fill memory with zeros and set __MEM_CALLOC flag */
   memset (ptr, 0, info->size);
   info->flags |= __MEM_CALLOC;
 
-  return ptr;
+  return ptr; /* happy end */
 }
 
 /* $Id$ */

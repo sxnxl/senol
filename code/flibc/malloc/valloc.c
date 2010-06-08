@@ -28,6 +28,7 @@
 void *
 valloc (size_t size)
 {
+  /* return memory that is aligned _SC_PAGESIZE boundary */
   return memalign (sysconf (_SC_PAGESIZE), size);
 }
 

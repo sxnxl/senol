@@ -18,8 +18,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <string.h>
+
 #include <fake.h>
+#include <string.h>
 
 char *
 strrchr (const char *s, int c)

@@ -36,27 +36,30 @@ malloc (size_t size)
     ptr = mmap (NULL, size + sizeof (struct __meminfo),
 		PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 
-  /* If size is 0, then return a NULL pointer,        */
-  /* then return null if memory mapping failed,       */
-  /* that can later be successfully passed to free(). */
+  /*
+    If size is 0 or mapping failed, then return a NULL pointer,
+    that can later be successfully passed to free().
+  */
   if (ptr == MAP_FAILED || !size)
     return NULL;
 
-  /* shift pointer from head of chunk to usable memory space */
+  /* shift pointer from beginning of chunk to usable part */
   ptr += __MEMINFO_SIZE;
 
-  /* get a pointer to __meminfo part of memory */
+  /* get a pointer to __meminfo part of chunk */
   info = __mem2info (ptr);
 
-  /* fill __meminfo */
+  /* i'm malloc, so set __MEM_MALLOC flag */
   info->flags = __MEM_MALLOC;
+
+  /* store size information */
   info->size = size;
 
-  /* memory is not aligned, so no padding and alignment */
+  /* memory is not aligned, so padding and alignment is zero */
   info->padding = 0;
   info->alignment = 0;
 
-  return (ptr);
+  return (ptr); /* happy end */
 }
 
 /* $Id$ */

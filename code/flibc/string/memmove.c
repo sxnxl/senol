@@ -1,5 +1,5 @@
 /*  memmove - copy memory area
-    
+
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
 
@@ -19,8 +19,8 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <string.h>
 #include <fake.h>
+#include <string.h>
 
 /* memmove handles memory overlaps */
 void *
