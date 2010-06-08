@@ -20,8 +20,8 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <string.h>
 #include <fake.h>
+#include <string.h>
 
 int
 strncmp (const char *s1, const char *s2, size_t n)

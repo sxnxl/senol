@@ -18,8 +18,9 @@
     You should have received a copy of the GNU Lesser General Public License
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <string.h>
+
 #include <fake.h>
+#include <string.h>
 
 char *
 strchr (const char *s, int c)
@@ -28,8 +29,8 @@ strchr (const char *s, int c)
   for (; *s != (char) c && *s; s++)
     ;
 
-  /* if we have null-terminator but not looking for null-char. so return NULL */
-  /* otherwise we have found it, return pointer */
+  /* if we have null-terminator but not looking for null-char. so return NULL,
+   * otherwise we have found it, return pointer */
   return (char *) (!*s && c ? NULL : s);
 }
 

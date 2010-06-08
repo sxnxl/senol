@@ -1,8 +1,8 @@
 /*  memcpy - copy memory area
-    
+
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
-    
+
     This file is part of flibc.
 
     flibc is free software: you can redistribute it and/or modify
@@ -19,8 +19,8 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <string.h>
 #include <fake.h>
+#include <string.h>
 
 /* memcpy does not care about memory overlaps,
  * use memmove for overlaping memory areas */

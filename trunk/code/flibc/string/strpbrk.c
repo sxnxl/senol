@@ -19,14 +19,15 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <string.h>
 #include <fake.h>
-#include "flimits.h"
+#include <limits.h>
+#include <string.h>
 
 #define F_ZEROS_16 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 #define F_ZEROS_64 F_ZEROS_16 F_ZEROS_16 F_ZEROS_16 F_ZEROS_16
 #define F_ZEROS_256 F_ZEROS_64 F_ZEROS_64 F_ZEROS_64 F_ZEROS_64
 
+/* TODO: DOCUMENTATION */
 char *
 strpbrk (const char *s, const char *accept)
 {

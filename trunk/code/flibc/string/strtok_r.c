@@ -1,4 +1,4 @@
-/*  strstr - locate a substring
+/*  strtok_r - extract tokens from strings (reentrant version)
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -24,23 +24,31 @@
 
 /* TODO: DOCUMENTATION */
 
+/* strtok_r() is reentrant version of function strtok.
+ * The strtok() function parses a string into a sequence of tokens.
+ * Tokens are delimited substrings of a string. 
+ * */
 char *
-strstr (const char *haystack, const char *needle)
+strtok_r (char *str, const char *delim, char **saveptr)
 {
-  char *haystack_last = haystack;
-  char *haystack_p = haystack;
-  char *needle_p;
+  if (str)
+    *saveptr = str;
 
-  for (; *haystack_last; haystack_last++)
+  do
     {
-      needle_p = needle;
-      for (; *haystack_p == *needle_p && *needle_p; haystack_p++, needle_p++)
-	;
-      if (!*needle_p)
-	return haystack_last;
+      char *s = *saveptr;
+      char *e;
+      if (s){
+          e = strpbrk (s, delim);
+          if (e)
+              *e++ = '\0';
+          *saveptr = e;
+      }
+      str = s;
     }
+  while (str && !*str);
 
-  return NULL;
+  return str;
 }
 
 /* $Id$ */

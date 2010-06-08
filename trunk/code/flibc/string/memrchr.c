@@ -1,5 +1,5 @@
 /*  memrchr - scan memory for a character
-    
+
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
 
@@ -19,8 +19,8 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <string.h>
 #include <fake.h>
+#include <string.h>
 
 void *
 memrchr (const void *s, int c, size_t n)

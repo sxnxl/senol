@@ -1,4 +1,4 @@
-/*  string.h - String manipulation functions
+/*  string.h - String functions
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -26,83 +26,83 @@
 
 __BEGIN_DECLS
 
-/* strlen - calculate the length of a string */
+/* calculate the length of a string */
 #undef strlen
 extern size_t strlen (const char *s);
 
-/* memchr - scan memory for a character */
+/* scan memory for a character */
 #undef memchr
 extern void *memchr(const void *s, int c, size_t n);
 
-/* memrchr - scan memory for a character */
+/* scan memory for a character */
 #undef memrchr
 extern void *memrchr(const void *s, int c, size_t n);
 
-/* memcmp - compare memory areas */
+/* compare memory areas */
 #undef memcmp
 extern int memcmp(const void *s1, const void *s2, size_t n);
 
-/* memcpy - copy memory area */
+/* copy memory area */
 #undef memcpy
 extern void *memcpy(void *dest, const void *src, size_t n);
 
-/* memmove - copy memory area */
+/* copy memory area */
 #undef memmove
 extern void *memmove(void *dest, const void *src, size_t n);
 
-/* memset - fill memory with a constant byte */
+/* fill memory with a constant byte */
 #undef memset
 extern void *memset(void *s, int c, size_t n);
 
-/* strcat - concatenate two strings */
+/* concatenate two strings */
 #undef strcat
 extern char *strcat(char *dest, const char *src);
 
-/* strncat - concatenate two strings */
+/* concatenate two strings */
 #undef strncat
 extern char *strncat(char *dest, const char *src, size_t n);
 
-/* strchr - locate character in string */
+/* locate character in string */
 #undef strchr
 extern char *strchr(const char *s, int c);
 
-/* strrchr - locate character in string */
+/* locate character in string */
 #undef strrchr
 extern char *strrchr(const char *s, int c);
 
-/* strcmp - compare two strings */
+/* compare two strings */
 #undef strcmp
 extern int strcmp(const char *s1, const char *s2);
 
-/* strncmp - compare two strings */
+/* compare two strings */
 #undef strncmp
 extern int strncmp(const char *s1, const char *s2, size_t n);
 
-/* strcoll - compare two strings using the current locale */
+/* compare two strings using the current locale */
 #undef strcoll
 extern int strcoll(const char *s1, const char *s2);
 
-/* strcpy - copy a string */
+/* copy a string */
 #undef strcpy
 extern char *strcpy(char *dest, const char *src);
 
-/* strncpy - copy a string */
+/* copy a string */
 #undef strncpy
 extern char *strncpy(char *dest, const char *src, size_t n);
 
-/* strspn - search a string for a set of characters */
+/* search a string for a set of characters */
 #undef strspn
 extern size_t strspn(const char *s, const char *accept);
 
-/* strcspn - search a string for a set of characters */
+/* search a string for a set of characters */
 #undef strcspn
 extern size_t strcspn(const char *s, const char *reject);
 
-/* strpbrk - search a string for any of a set of characters */
+/* search a string for any of a set of characters */
 #undef strpbrk
 extern char *strpbrk(const char *s, const char *accept);
 
-/* strstr - locate a substring */
+/* locate a substring */
 #undef strstr
 extern char *strstr(const char *haystack, const char *needle);
 

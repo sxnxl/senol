@@ -19,8 +19,8 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <string.h>
 #include <fake.h>
+#include <string.h>
 
 char *
 strncat (char *dest, const char *src, size_t n)

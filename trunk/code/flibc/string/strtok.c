@@ -1,4 +1,4 @@
-/*  strstr - locate a substring
+/*  strtok - extract tokens from strings
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -25,22 +25,11 @@
 /* TODO: DOCUMENTATION */
 
 char *
-strstr (const char *haystack, const char *needle)
+strtok (char *str, const char *delim)
 {
-  char *haystack_last = haystack;
-  char *haystack_p = haystack;
-  char *needle_p;
+    static char *last_str;
 
-  for (; *haystack_last; haystack_last++)
-    {
-      needle_p = needle;
-      for (; *haystack_p == *needle_p && *needle_p; haystack_p++, needle_p++)
-	;
-      if (!*needle_p)
-	return haystack_last;
-    }
-
-  return NULL;
+    return strtok_r(s, delim, &last_str);
 }
 
 /* $Id$ */
