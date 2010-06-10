@@ -1,7 +1,20 @@
+2010-06-10  Şenol Korkmaz  <mail@senolkorkmaz.info>
+
+	* INSTALL: New file
+	* testsuite/: New directory
+
+2010-06-09  Şenol Korkmaz  <mail@senolkorkmaz.info>
+
+	* string/: Add files strdup.c, strndup_r.c
+	* TODO: this file is now contains features, bugs ...
+	* TODO.LIST: TODO lists are now in subdirectories with the name TODO.LIST
+	* draft.c: removed, we dont need anymore
+	* string/strncpy.c: fill the rest of dest with '\0' (7.21.2.4-3 ISO/IEC 9899:1999)
+	* string/test/tst-*.c: removed '#ifdef TEST_USING_FSTRING'
+
 2010-06-08  Şenol Korkmaz  <mail@senolkorkmaz.info>
 
 	* string/: Add file strtok.c, strtok_r.c
-
 
 2010-06-05  Şenol Korkmaz  <mail@senolkorkmaz.info>
 

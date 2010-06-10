@@ -59,7 +59,7 @@ strcspn (const char *s, const char *reject)
 #endif
 
   for (; *reject; reject++)	/* for all characters those in *reject */
-    chr_bmp[*reject] = 0;	/* mark it as rejected */
+    chr_bmp[(unsigned char) *reject] = 0;	/* mark it as rejected */
 
   /* null character were initially accepted, let's reject it */
   chr_bmp[0] = 0;

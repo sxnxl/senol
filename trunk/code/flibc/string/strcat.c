@@ -33,7 +33,7 @@ strcat (char *dest, const char *src)
 
   /* append current byte from src to dest */
   /* move pointers to next bytes until find a null-terminator */
-  while (*dest_byte++ = *src++)
+  while ((*dest_byte++ = *src++))
     ;
 
   /* return pointer to destination string */

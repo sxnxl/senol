@@ -41,10 +41,10 @@ strpbrk (const char *s, const char *accept)
 #endif
 
   for (; *accept; accept++)
-    chr_bmp[*accept] = 1;
+    chr_bmp[(unsigned char) *accept] = 1;
 
   for (; chr_bmp[(unsigned char) *s]; s++)
-    break;
+    ;
 
   return (char *) ((*s) ? s : NULL);
 }

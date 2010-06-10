@@ -24,12 +24,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifdef TEST_USING_FSTRING	/* want to use flibc ? */
-# include <string.h>		/* use flibc */
-# else
-# include <string.h>		/* otherwise use stdlibc */
-#endif
-
 /* prototype : size_t strlen(const char *s); */
 #define FTEST(S) \
   fprintf(stderr, "strlen( %s:\"%s\" ) = %d\n"\

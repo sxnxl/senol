@@ -1,10 +1,22 @@
 This directory contains contributed implementations of some flibc functions.
 
-Please send your own implementations to Şenol Korkmaz <mail@senolkorkmaz.info>
+Some of those implementations may already be included within flibc. If your code
+included in this directory but not in flibc, please don't be offended, there are
+lots of possible reasons for that. Probably an other implementation is already
+included and in fact, there might no more seat in flibc bus for one spesific function.
+Fortunately flibc is not only a bus, imagine it as a motorcade that contains
+a contributors' bus which always has a seat for your implementation.
 
-Before sending contributions, consider that flibc is licensed under the terms of 
+Please send your own implementations to Şenol Korkmaz <mail@senolkorkmaz.info>.
+
+You may want to read the file HACKING to be informed about our coding convention.
+It will be best if you don't treat the reader as an oracle and it will also be nice
+if you treat him/her as an average developer who is using C language and Unix like 
+operating system. Write your code and documentation as intended for such a reader.
+
+Before sending contributions, consider that flibc is licensed under the terms of
 GNU Lesser General Public License so we publish only GNU LGPL compatible work.
-Please provide the copyright and license notices along your work.
+Please provide the copyright and license notices along with your work.
 
 In some cases I might make corrections to your contributions, and in most cases
-i will use GNU Indent to make your code comply GNU Coding Guidelines.
+i will use GNU Indent to make your code compatible with GNU Coding Guidelines.

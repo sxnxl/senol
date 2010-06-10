@@ -1,0 +1,11 @@
+This file will be a recipe for compiling flibc and using it within your applications.
+
+Unfortunately we have not implemented all functions yet. Therefore this file have no
+instructions yet, but someday ...
+
+Nevertheless, you should be able to compile individual files with some effort and
+with the help of saying a little prayer. If not, please feel free to make contact with us.
+
+--
+Şenol Korkmaz <mail@senolkorkmaz.info>
+

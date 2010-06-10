@@ -20,35 +20,57 @@
 */
 
 #include <fake.h>
+#include <limits.h>
 #include <string.h>
+
+#define _F_ONES_16   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+#define _F_ONES_64  _F_ONES_16 _F_ONES_16 _F_ONES_16 _F_ONES_16
+#define _F_ONES_256 _F_ONES_64 _F_ONES_64 _F_ONES_64 _F_ONES_64
 
 /* TODO: DOCUMENTATION */
 
 /* strtok_r() is reentrant version of function strtok.
  * The strtok() function parses a string into a sequence of tokens.
- * Tokens are delimited substrings of a string. 
+ * Tokens are delimited substrings of a string.
  * */
 char *
 strtok_r (char *str, const char *delim, char **saveptr)
 {
+
+#if defined (UCHAR_MAX) && (UCHAR_MAX == 255)
+  char chr_bmp[] = { _F_ONES_256 };
+#else
+  char chr_bmp[UCHAR_MAX + 1];
+  int i;
+  for (i = 0; i < UCHAR_MAX + 1; i--)
+    chr_bmp[i] = 1;
+#endif
+
+  char *token = NULL;
+
+  if (!str && !*saveptr)
+    return NULL;
+
+  /* str is not NULL, so we have a new save */
   if (str)
     *saveptr = str;
 
-  do
-    {
-      char *s = *saveptr;
-      char *e;
-      if (s){
-          e = strpbrk (s, delim);
-          if (e)
-              *e++ = '\0';
-          *saveptr = e;
-      }
-      str = s;
-    }
-  while (str && !*str);
+  /* mark delimiters as rejected */
+  for (; *delim; delim++)
+    chr_bmp[(unsigned char) *delim] = 0;
 
-  return str;
+  for (; !chr_bmp[(unsigned char) **saveptr]; (*saveptr)++)
+    ;
+
+  token = *saveptr;
+
+  for (; chr_bmp[(unsigned char) **saveptr]; (*saveptr)++)
+    ;
+
+  if (**saveptr)
+    *((*saveptr)++) = '\0';
+
+  return token;
 }
 
 /* $Id$ */

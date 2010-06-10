@@ -59,7 +59,7 @@ strspn (const char *s, const char *accept)
 #endif
 
   for (; *accept; accept++)	/* for all characters those in *accept */
-    chr_bmp[*accept] = 1;	/* mark it as accepted */
+    chr_bmp[(unsigned char) *accept] = 1;	/* mark it as accepted */
 
   /* for all characters found in *s that is marked accepted, increase (len) */
   for (; chr_bmp[(unsigned char) *s]; s++)

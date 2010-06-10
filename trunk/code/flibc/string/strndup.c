@@ -1,4 +1,4 @@
-/*  draft - brief description
+/*  strndup - duplicate a string
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -19,7 +19,23 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "fstring.h"
-#include "ffake.h"
+#include <fake.h>
+#include <malloc.h>
+#include <string.h>
+
+char *
+strndup (const char *s, size_t n)
+{
+  char *s_new = NULL;
+  size_t len = n > strlen (s) ? strlen (s) : n;
+
+  if (s)
+    s_new = (char *) malloc (len + 1);
+
+  if (!s_new)
+    return NULL;
+
+  return strncpy (s_new, s, len);
+}
 
 /* $Id$ */
