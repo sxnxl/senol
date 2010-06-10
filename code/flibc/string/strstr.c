@@ -27,9 +27,9 @@
 char *
 strstr (const char *haystack, const char *needle)
 {
-  char *haystack_last = haystack;
-  char *haystack_p = haystack;
-  char *needle_p;
+  const char *haystack_last = haystack;
+  const char *haystack_p = haystack;
+  const char *needle_p;
 
   for (; *haystack_last; haystack_last++)
     {
@@ -37,7 +37,7 @@ strstr (const char *haystack, const char *needle)
       for (; *haystack_p == *needle_p && *needle_p; haystack_p++, needle_p++)
 	;
       if (!*needle_p)
-	return haystack_last;
+	return (char *) haystack_last;
     }
 
   return NULL;

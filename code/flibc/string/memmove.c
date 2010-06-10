@@ -40,7 +40,7 @@ memmove (void *dest, const void *src, size_t n)
 
       /* use backward copying */
       for (; n; n--)
-	*dest_byte-- == *src_byte--;
+	*dest_byte-- = *src_byte--;
     }
   else
     {

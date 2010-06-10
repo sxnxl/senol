@@ -26,85 +26,101 @@
 
 __BEGIN_DECLS
 
-/* calculate the length of a string */
+/* strlen - calculate the length of a string */
 #undef strlen
 extern size_t strlen (const char *s);
 
-/* scan memory for a character */
+/* memchr - scan memory for a character */
 #undef memchr
 extern void *memchr(const void *s, int c, size_t n);
 
-/* scan memory for a character */
+/* memrchr - scan memory for a character */
 #undef memrchr
 extern void *memrchr(const void *s, int c, size_t n);
 
-/* compare memory areas */
+/* memcmp - compare memory areas */
 #undef memcmp
 extern int memcmp(const void *s1, const void *s2, size_t n);
 
-/* copy memory area */
+/* memcpy - copy memory area */
 #undef memcpy
 extern void *memcpy(void *dest, const void *src, size_t n);
 
-/* copy memory area */
+/* memmove - copy memory area */
 #undef memmove
 extern void *memmove(void *dest, const void *src, size_t n);
 
-/* fill memory with a constant byte */
+/* memset - fill memory with a constant byte */
 #undef memset
 extern void *memset(void *s, int c, size_t n);
 
-/* concatenate two strings */
+/* strcat - concatenate two strings */
 #undef strcat
 extern char *strcat(char *dest, const char *src);
 
-/* concatenate two strings */
+/* strncat - concatenate two strings */
 #undef strncat
 extern char *strncat(char *dest, const char *src, size_t n);
 
-/* locate character in string */
+/* strchr - locate character in string */
 #undef strchr
 extern char *strchr(const char *s, int c);
 
-/* locate character in string */
+/* strrchr - locate character in string */
 #undef strrchr
 extern char *strrchr(const char *s, int c);
 
-/* compare two strings */
+/* strcmp - compare two strings */
 #undef strcmp
 extern int strcmp(const char *s1, const char *s2);
 
-/* compare two strings */
+/* strncmp - compare two strings */
 #undef strncmp
 extern int strncmp(const char *s1, const char *s2, size_t n);
 
-/* compare two strings using the current locale */
+/* strcoll - compare two strings using the current locale */
 #undef strcoll
 extern int strcoll(const char *s1, const char *s2);
 
-/* copy a string */
+/* strcpy - copy a string */
 #undef strcpy
 extern char *strcpy(char *dest, const char *src);
 
-/* copy a string */
+/* strncpy - copy a string */
 #undef strncpy
 extern char *strncpy(char *dest, const char *src, size_t n);
 
-/* search a string for a set of characters */
+/* strspn - search a string for a set of characters */
 #undef strspn
 extern size_t strspn(const char *s, const char *accept);
 
-/* search a string for a set of characters */
+/* strcspn - search a string for a set of characters */
 #undef strcspn
 extern size_t strcspn(const char *s, const char *reject);
 
-/* search a string for any of a set of characters */
+/* strpbrk - search a string for any of a set of characters */
 #undef strpbrk
 extern char *strpbrk(const char *s, const char *accept);
 
-/* locate a substring */
+/* strstr - locate a substring */
 #undef strstr
 extern char *strstr(const char *haystack, const char *needle);
+
+/* strtok - extract tokens from strings */
+#undef strtok
+extern char *strtok(char *str, const char *delim);
+
+/* strtok_r - extract tokens from strings */
+#undef strtok_r
+extern char *strtok_r(char *str, const char *delim, char **saveptr);
+
+/* strdup - duplicate a string */
+#undef strdup
+char *strdup(const char *s);
+
+/* strndup - duplicate a string */
+#undef strndup
+char *strndup(const char *s, size_t n);
 
 __END_DECLS
 

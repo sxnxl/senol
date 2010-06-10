@@ -28,7 +28,7 @@ strcpy (char *dest, const char *src)
   char *dest_byte = dest;
 
   /* copy character and increase pointers to next character */
-  while (*dest_byte++ = *src++)
+  while ((*dest_byte++ = *src++))
     ;
 
   /* return pointer to string dest */

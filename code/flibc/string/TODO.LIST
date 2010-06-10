@@ -1,0 +1,66 @@
+List of functions that are waiting on the queue to be; implemented, documented and tested.
+See the LEGEND at the end of this file for information about prefixal marks.
+
+<string.h>
+==========
++++ memchr
++++ memcmp
++++ memcpy
++++ memmove
+*++ memrchr (BUGS: #2)
++++ memset
++++ strcat
++++ strchr
++++ strcmp
++++ strcpy
++++ strcspn
++++ strdup
++++ strlen
++++ strncat
++++ strncmp
++++ strncpy
++++ strndup
++++ strpbrk
++++ strrchr
++++ strspn
++++ strstr
++++ strtok
++++ strtok_r
+--- basename
+--- bcopy
+--- bzero
+--- ffs
+--- ffsll
+--- memccpy
+--- memfrob
+--- memmem
+--- mempcpy
+--- rawmemchr
+--- stpcpy
+--- stpncpy
+--- stratcliff
+--- strcasecmp
+--- strcasecmp_l
+--- strcasestr
+--- strchrnul
+--- strcoll
+--- strcoll_l
+--- strerror
+--- strerror_l
+--- strfry
+--- strnlen
+--- strsep
+--- strsignal
+--- strverscmp
+--- strxfrm
+--- strxfrm_l
+--- swab
+
+========+++--- LEGEND ---+++========
+--- !implemented !documented !tested
++--  implemented !documented !tested
+++-  implemented  documented !tested
++++  implemented  documented  tested
+*    has bugs
+====================================
+

@@ -1,4 +1,4 @@
-/*  strtok - extract tokens from strings
+/*  strdup - duplicate a string
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -20,16 +20,21 @@
 */
 
 #include <fake.h>
+#include <malloc.h>
 #include <string.h>
 
-/* TODO: DOCUMENTATION */
-
 char *
-strtok (char *str, const char *delim)
+strdup (const char *s)
 {
-  static char *save = NULL;
+  char *s_new = NULL;
 
-  return strtok_r (str, delim, &save);
+  if (s)
+    s_new = malloc (strlen (s) + 1);
+
+  if (!s_new)
+    return NULL;
+
+  return (strcpy (s_new, s));
 }
 
 /* $Id$ */

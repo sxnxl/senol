@@ -1,0 +1,21 @@
+List of functions that are waiting on the queue to be; implemented, documented and tested.
+See the LEGEND at the end of this file for information about prefixal marks.
+
+<malloc.h>
+==========
++-- calloc
++-- free
++-- malloc
++-- memalign
++-- posix_memalign
++-- realloc
++-- valloc
+
+========+++--- LEGEND ---+++========
+--- !implemented !documented !tested
++--  implemented !documented !tested
+++-  implemented  documented !tested
++++  implemented  documented  tested
+*    has bugs
+====================================
+
