@@ -25,102 +25,115 @@
 #define _FSTRING_H  1
 
 __BEGIN_DECLS
-
 /* strlen - calculate the length of a string */
 #undef strlen
 extern size_t strlen (const char *s);
 
 /* memchr - scan memory for a character */
 #undef memchr
-extern void *memchr(const void *s, int c, size_t n);
+extern void *memchr (const void *s, int c, size_t n);
 
 /* memrchr - scan memory for a character */
 #undef memrchr
-extern void *memrchr(const void *s, int c, size_t n);
+extern void *memrchr (const void *s, int c, size_t n);
 
 /* memcmp - compare memory areas */
 #undef memcmp
-extern int memcmp(const void *s1, const void *s2, size_t n);
+extern int memcmp (const void *s1, const void *s2, size_t n);
 
 /* memcpy - copy memory area */
 #undef memcpy
-extern void *memcpy(void *dest, const void *src, size_t n);
+extern void *memcpy (void *dest, const void *src, size_t n);
 
 /* memmove - copy memory area */
 #undef memmove
-extern void *memmove(void *dest, const void *src, size_t n);
+extern void *memmove (void *dest, const void *src, size_t n);
 
 /* memset - fill memory with a constant byte */
 #undef memset
-extern void *memset(void *s, int c, size_t n);
+extern void *memset (void *s, int c, size_t n);
 
 /* strcat - concatenate two strings */
 #undef strcat
-extern char *strcat(char *dest, const char *src);
+extern char *strcat (char *dest, const char *src);
 
 /* strncat - concatenate two strings */
 #undef strncat
-extern char *strncat(char *dest, const char *src, size_t n);
+extern char *strncat (char *dest, const char *src, size_t n);
 
 /* strchr - locate character in string */
 #undef strchr
-extern char *strchr(const char *s, int c);
+extern char *strchr (const char *s, int c);
 
 /* strrchr - locate character in string */
 #undef strrchr
-extern char *strrchr(const char *s, int c);
+extern char *strrchr (const char *s, int c);
 
 /* strcmp - compare two strings */
 #undef strcmp
-extern int strcmp(const char *s1, const char *s2);
+extern int strcmp (const char *s1, const char *s2);
 
 /* strncmp - compare two strings */
 #undef strncmp
-extern int strncmp(const char *s1, const char *s2, size_t n);
+extern int strncmp (const char *s1, const char *s2, size_t n);
 
 /* strcoll - compare two strings using the current locale */
 #undef strcoll
-extern int strcoll(const char *s1, const char *s2);
+extern int strcoll (const char *s1, const char *s2);
 
 /* strcpy - copy a string */
 #undef strcpy
-extern char *strcpy(char *dest, const char *src);
+extern char *strcpy (char *dest, const char *src);
 
 /* strncpy - copy a string */
 #undef strncpy
-extern char *strncpy(char *dest, const char *src, size_t n);
+extern char *strncpy (char *dest, const char *src, size_t n);
 
 /* strspn - search a string for a set of characters */
 #undef strspn
-extern size_t strspn(const char *s, const char *accept);
+extern size_t strspn (const char *s, const char *accept);
 
 /* strcspn - search a string for a set of characters */
 #undef strcspn
-extern size_t strcspn(const char *s, const char *reject);
+extern size_t strcspn (const char *s, const char *reject);
 
 /* strpbrk - search a string for any of a set of characters */
 #undef strpbrk
-extern char *strpbrk(const char *s, const char *accept);
+extern char *strpbrk (const char *s, const char *accept);
 
 /* strstr - locate a substring */
 #undef strstr
-extern char *strstr(const char *haystack, const char *needle);
+extern char *strstr (const char *haystack, const char *needle);
 
 /* strtok - extract tokens from strings */
 #undef strtok
-extern char *strtok(char *str, const char *delim);
+extern char *strtok (char *str, const char *delim);
 
 /* strtok_r - extract tokens from strings */
 #undef strtok_r
-extern char *strtok_r(char *str, const char *delim, char **saveptr);
+extern char *strtok_r (char *str, const char *delim, char **saveptr);
 
 /* strdup - duplicate a string */
 #undef strdup
-char *strdup(const char *s);
+extern char *strdup (const char *s);
 
 /* strndup - duplicate a string */
 #undef strndup
-char *strndup(const char *s, size_t n);
+extern char *strndup (const char *s, size_t n);
+
+/* GNU EXTENSIONS */
+#ifdef _GNU_SOURCE
+
+/* memmem - locate a substring */
+#undef memmem
+extern void *memmem (const void *haystack, size_t haystacklen,
+		     const void *needle, size_t needlelen);
+
+/* strverscmp - compare two version strings */
+#undef strverscmp
+extern int strverscmp (const char *s1, const char *s2);
+
+#endif /* _GNU_SOURCE */
 
 __END_DECLS
 

@@ -1,4 +1,4 @@
-/*  calloc - Allocate dynamic memory and set to zero
+/*  strverscmp - compare two version strings
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -20,37 +20,20 @@
 */
 
 #include <fake.h>
-#include <errno.h>
+#include <ctype.h>
 #include <string.h>
-#include <malloc.h>
 
-#undef calloc
-
-void *
-calloc (size_t nmemb, size_t lsize)
+int
+strverscmp (const char *s1, const char *s2)
 {
-  void *ptr;
-  struct __meminfo *info;
-  size_t size = lsize * nmemb;
+  for (; (*s1 == *s2) && *s1; s1++, s2++)
+    ;
 
-  /* if size overflow occurs, then set errno to ENOMEM and return NULL */
-  if (nmemb && lsize != (size / nmemb))
-    {
-      set_errno (ENOMEM);
-      return NULL;
-    }
+  if ((*s1 || *s2) && (!*s1 || !*s2))
+    if ((*(s1 - 1) == '0') && isdigit ((*s1) ? *s1 : *s2))
+      return (*s1) ? -1 : 1;
 
-  /* allocate memory */
-  ptr = malloc (size);
-
-  /* get pointer to info part of chunk */
-  info = __mem2info (ptr);
-
-  /* fill memory with zeros and set __MEM_CALLOC flag */
-  memset (ptr, 0, info->size);
-  info->flags |= __MEM_CALLOC;
-
-  return ptr;			/* happy end */
+  return (int) (*(const unsigned char *) s1 - *(const unsigned char *) s2);
 }
 
 /* $Id$ */

@@ -1,5 +1,9 @@
 2010-06-10  Şenol Korkmaz  <mail@senolkorkmaz.info>
 
+	* string/strverscmp.c: New file
+
+2010-06-10  Şenol Korkmaz  <mail@senolkorkmaz.info>
+
 	* INSTALL: New file
 	* testsuite/: New directory
 

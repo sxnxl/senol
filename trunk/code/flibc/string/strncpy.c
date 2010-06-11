@@ -35,8 +35,8 @@ strncpy (char *dest, const char *src, size_t n)
   /* if lenght of src is less than n,
    * set remaining bytes of dest to null-character,
    * as required by C99 standards (7.21.2.4-3 of ISO/IEC 9899:1999) */
-  for (;n;dest_byte++,n--)
-      dest_byte = '\0';
+  for (; n; dest_byte++, n--)
+    dest_byte = '\0';
 
   /* return pointer to string dest */
   return dest;

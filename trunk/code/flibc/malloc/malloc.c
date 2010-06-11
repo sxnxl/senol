@@ -37,9 +37,9 @@ malloc (size_t size)
 		PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 
   /*
-    If size is 0 or mapping failed, then return a NULL pointer,
-    that can later be successfully passed to free().
-  */
+     If size is 0 or mapping failed, then return a NULL pointer,
+     that can later be successfully passed to free().
+   */
   if (ptr == MAP_FAILED || !size)
     return NULL;
 
@@ -59,7 +59,7 @@ malloc (size_t size)
   info->padding = 0;
   info->alignment = 0;
 
-  return (ptr); /* happy end */
+  return (ptr);			/* happy end */
 }
 
 /* $Id$ */

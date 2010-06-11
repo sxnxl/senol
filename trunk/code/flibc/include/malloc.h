@@ -57,9 +57,9 @@ Size: | __meminfo.padding | __MEMINFO_SIZE | __meminfo.size | __meminfo.alignmen
 
 #include <fake.h>
 
-#define __MEM_MALLOC 	1  /* Memory is allocated by malloc or its friends */
-#define __MEM_CALLOC 	2  /* Memory is allocated by calloc (zeroed)       */
-#define __MEM_MEMALIGN	4  /* Memory is allocated by memalign,.. (aligned) */
+#define __MEM_MALLOC 	1	/* Memory is allocated by malloc or its friends */
+#define __MEM_CALLOC 	2	/* Memory is allocated by calloc (zeroed)       */
+#define __MEM_MEMALIGN	4	/* Memory is allocated by memalign,.. (aligned) */
 
 
 /* size of the info part of a chunk */
@@ -76,14 +76,13 @@ Size: | __meminfo.padding | __MEMINFO_SIZE | __meminfo.size | __meminfo.alignmen
 
 struct __meminfo
 {
-  unsigned int flags;   /* allocator type */
-  size_t padding;       /* size of unused area that is at beginning */
-  size_t alignment;     /* alignment */
-  size_t size;          /* usable (requested) size */
+  unsigned int flags;		/* allocator type */
+  size_t padding;		/* size of unused area that is at beginning */
+  size_t alignment;		/* alignment */
+  size_t size;			/* usable (requested) size */
 };
 
 __BEGIN_DECLS
-
 /* Allocate zeroed dynamic memory */
 #undef calloc
 extern void *calloc (size_t nmemb, size_t size);
@@ -102,7 +101,7 @@ extern void *realloc (void *ptr, size_t size);
 
 /* Allocate aligned memory */
 #undef posix_memalign
-extern int posix_memalign(void **memptr, size_t alignment, size_t size);
+extern int posix_memalign (void **memptr, size_t alignment, size_t size);
 
 /* Allocate aligned memory */
 #undef memalign
@@ -113,7 +112,5 @@ extern void *memalign (size_t boundary, size_t size);
 extern void *valloc (size_t size);
 
 __END_DECLS
-
-#endif				/* malloc.h */
-
+#endif /* malloc.h */
 /* $Id$ */
