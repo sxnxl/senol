@@ -34,10 +34,10 @@ memalign (size_t boundary, size_t size)
   struct __meminfo *info;
 
   /*
-    boundary should be a power of 2 as required by standards.
-    If not, set errno to EINVAL and return NULL pointer.
-    Use bitwise method to see if boundary is a power of two. [0]
-  */
+     boundary should be a power of 2 as required by standards.
+     If not, set errno to EINVAL and return NULL pointer.
+     Use bitwise method to see if boundary is a power of two. [0]
+   */
   if (boundary && !(boundary & (boundary - 1)))
     {
       set_errno (EINVAL);
@@ -45,29 +45,29 @@ memalign (size_t boundary, size_t size)
     }
 
   /*
-    If the address returned by malloc is already aligned, we will not have
-    anything to deal with, otherwise we have to align it manually by moving
-    usable part of chunk. We need to obtain some extra space to move usable
-    part in chunk. The worst case is address returned by malloc that is one
-    more of a multiple of boundary. We should (obtain boundary - 1) bytes more
-    to deal with the worst case. (Note that -1 % boundary = boundary - 1)
-  */
+     If the address returned by malloc is already aligned, we will not have
+     anything to deal with, otherwise we have to align it manually by moving
+     usable part of chunk. We need to obtain some extra space to move usable
+     part in chunk. The worst case is address returned by malloc that is one
+     more of a multiple of boundary. We should (obtain boundary - 1) bytes more
+     to deal with the worst case. (Note that -1 % boundary = boundary - 1)
+   */
   ptr = malloc (size + boundary - 1);
 
   /* return NULL if malloc fails */
   if (ptr == NULL)
     return NULL;
 
-  info = __mem2info (ptr);        /* get info part of the chunk */
-  info->flags |= __MEM_MEMALIGN;  /* I'm memalign so set my flag */
-  info->alignment = boundary;     /* set alignment */
+  info = __mem2info (ptr);	/* get info part of the chunk */
+  info->flags |= __MEM_MEMALIGN;	/* I'm memalign so set my flag */
+  info->alignment = boundary;	/* set alignment */
 
   /*
-    size was (size + boundary - 1) when calling malloc,
-    but this is not the actual size of usable part.
-    (boundary - 1) bytes are unusable,
-    so we need to set size of usable part to (size)
-  */
+     size was (size + boundary - 1) when calling malloc,
+     but this is not the actual size of usable part.
+     (boundary - 1) bytes are unusable,
+     so we need to set size of usable part to (size)
+   */
   info->size = size;
 
   /* how much padding we need? */
@@ -84,7 +84,7 @@ memalign (size_t boundary, size_t size)
       info->padding = pad;
     }
 
-  return ptr; /* happy end */
+  return ptr;			/* happy end */
 }
 
 /*

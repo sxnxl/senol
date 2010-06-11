@@ -31,7 +31,7 @@ free (void *ptr)
   struct __meminfo *info;
   void *chunk;
 
-  /* do nothing and return if ptr is NULL*/
+  /* do nothing and return if ptr is NULL */
   if (!ptr)
     return;
 
