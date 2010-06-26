@@ -7,4 +7,4 @@ typedef char* happy;main(){
 
   "Mutlu yıllar %s\a\n\a"     ,
   (happy) live               );
-  return birthday            ;}
+  return  *birthday          ;}
