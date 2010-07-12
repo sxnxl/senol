@@ -23,15 +23,54 @@
 #include <ctype.h>
 #include <string.h>
 
+#define _GET_MODE(s1,s2) ((isdigit (s1) && isdigit (s2))\
+    ? ((*(s1) == *(s2) == '0') ? _FRACTIONAL : _INTEGRAL)\
+        : (*(s1) == *(s2)) ? _NORMAL : _END)
+
+#define  M_N    0x0		/* normal      */
+#define  M_I    0x4		/* integral    */
+#define  M_F    0x8		/* fractional  */
+#define  M_Z    0xC		/* zeroes      */
+
 int
 strverscmp (const char *s1, const char *s2)
 {
-  for (; (*s1 == *s2) && *s1; s1++, s2++)
-    ;
+  enum _modes mode;
+  enum _modes mode_next;
+  int retval = 0;
 
-  if ((*s1 || *s2) && (!*s1 || !*s2))
-    if ((*(s1 - 1) == '0') && isdigit ((*s1) ? *s1 : *s2))
-      return (*s1) ? -1 : 1;
+  static const uint8_t mode_tbl[] = {
+    /*  mode      c    d    0    -  */
+    /* ------    ---  ---  ---  --- */
+    /*  M_N   */ M_N, M_I, M_Z, M_N,
+    /*  M_I   */ M_N, M_I, M_I, M_I,
+    /*  M_F   */ M_N, M_F, M_F, M_F,
+    /*  M_Z   */ M_N, M_F, M_Z, M_Z
+  };
+
+  mode = _GET_MODE (s1, s2);
+  mode = _GET_MODE (s1 + 1, s2 + 1);
+
+  do
+    {
+      switch (mode)
+	{
+	case _NORMAL:
+	  if (*s1 != *s2)
+	    mode = _END;
+	  else
+	    {
+	      mode = next_mode;
+	    }
+	  break;
+	case _INTEGRAL:
+	  if (mode_next != _INTEGRAL && retval != _END)
+	    break;
+	case _FRACTIONAL:
+	  break;
+	}
+    }
+  while (mode != _END)
 
   return (int) (*(const unsigned char *) s1 - *(const unsigned char *) s2);
 }

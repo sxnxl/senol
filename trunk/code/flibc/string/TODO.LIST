@@ -32,7 +32,7 @@ See the LEGEND at the end of this file for information about prefixal marks.
 --- ffs
 --- ffsll
 --- memccpy
---- memfrob
++-- memfrob
 --- memmem
 --- mempcpy
 --- rawmemchr
@@ -51,7 +51,7 @@ See the LEGEND at the end of this file for information about prefixal marks.
 --- strnlen
 --- strsep
 --- strsignal
---- strverscmp
+*-- strverscmp
 --- strxfrm
 --- strxfrm_l
 --- swab

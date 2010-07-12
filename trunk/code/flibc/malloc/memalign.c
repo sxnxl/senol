@@ -24,8 +24,6 @@
 #include <string.h>
 #include <malloc.h>
 
-#undef memalign
-
 void *
 memalign (size_t boundary, size_t size)
 {

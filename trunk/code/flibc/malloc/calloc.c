@@ -48,7 +48,7 @@ calloc (size_t nmemb, size_t lsize)
 
   /* fill memory with zeros and set __MEM_CALLOC flag */
   memset (ptr, 0, info->size);
-  info->flags |= __MEM_CALLOC;
+  info->flags |= _MEM_CALLOC;
 
   return ptr;			/* happy end */
 }
