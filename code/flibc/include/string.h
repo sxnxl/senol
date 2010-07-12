@@ -121,7 +121,6 @@ extern char *strdup (const char *s);
 #undef strndup
 extern char *strndup (const char *s, size_t n);
 
-/* GNU EXTENSIONS */
 #ifdef _GNU_SOURCE
 
 /* memmem - locate a substring */
@@ -132,6 +131,14 @@ extern void *memmem (const void *haystack, size_t haystacklen,
 /* strverscmp - compare two version strings */
 #undef strverscmp
 extern int strverscmp (const char *s1, const char *s2);
+
+/* strnlen - determine the length of a fixed-size string */
+#undef strnlen
+extern size_t strnlen(const char *s, size_t maxlen);
+
+/* memfrob - frobnicate (encrypt) a memory area */
+#undef memfrob
+extern void *memfrob(void *s, size_t n);
 
 #endif /* _GNU_SOURCE */
 
