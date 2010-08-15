@@ -27,13 +27,13 @@ See the LEGEND at the end of this file for information about prefixal marks.
 +++ strtok
 +++ strtok_r
 --- basename
---- bcopy
---- bzero
++-- bcopy
++-- bzero
 --- ffs
 --- ffsll
 --- memccpy
 +-- memfrob
---- memmem
++-- memmem
 --- mempcpy
 --- rawmemchr
 --- stpcpy
@@ -48,7 +48,7 @@ See the LEGEND at the end of this file for information about prefixal marks.
 --- strerror
 --- strerror_l
 --- strfry
---- strnlen
++-- strnlen
 --- strsep
 --- strsignal
 *-- strverscmp

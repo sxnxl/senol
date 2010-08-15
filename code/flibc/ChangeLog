@@ -1,5 +1,14 @@
 2010-06-10  Şenol Korkmaz  <mail@senolkorkmaz.info>
 
+	* string/: Add files bcopy.c, bzero.c
+	* stdlib/: Add files abs.c, atoi.c
+
+2010-06-10  Şenol Korkmaz  <mail@senolkorkmaz.info>
+
+	* string/: Add files memmem.c, strnlen.c, memfrob.c
+
+2010-06-10  Şenol Korkmaz  <mail@senolkorkmaz.info>
+
 	* string/strverscmp.c: New file
 
 2010-06-10  Şenol Korkmaz  <mail@senolkorkmaz.info>

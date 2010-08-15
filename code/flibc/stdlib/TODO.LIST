@@ -1,0 +1,82 @@
+List of functions that are waiting on the queue to be; implemented, documented and tested.
+See the LEGEND at the end of this file for information about prefixal marks.
+
+<stdlib.h>
+==========
+--- _Exit
+--- a64l
+--- abort
+++- abs
+--- atexit
+--- atof
+--- atoi
+--- atol
+--- atoll
+--- bsearch
+--- calloc
+--- div
+--- drand48
+--- ecvt
+--- erand48
+--- exit
+--- fcvt
+--- free
+--- gcvt
+--- getenv
+--- getsubopt
+--- grantpt
+--- initstate
+--- jrand48
+--- l64a
+--- labs
+--- lcong48
+--- ldiv
+--- llabs
+--- lldiv
+--- lrand48
+--- malloc
+--- mblen
+--- mbstowcs
+--- mbtowc
+--- mktemp
+--- mkstemp
+--- mrand48
+--- nrand48
+--- posix_memalign
+--- posix_openpt
+--- ptsname
+--- putenv
+--- qsort
+--- rand
+--- rand_r
+--- random
+--- realloc
+--- realpath
+--- seed48
+--- setenv
+--- setkey
+--- setstate
+--- srand
+--- srand48
+--- srandom
+--- strtod
+--- strtof
+--- strtol
+--- strtold
+--- strtoll
+--- strtoul
+--- strtoull
+--- system
+--- unlockpt
+--- unsetenv
+--- wcstombs
+--- wctomb
+
+========+++--- LEGEND ---+++========
+--- !implemented !documented !tested
++--  implemented !documented !tested
+++-  implemented  documented !tested
++++  implemented  documented  tested
+*    has bugs
+====================================
+
