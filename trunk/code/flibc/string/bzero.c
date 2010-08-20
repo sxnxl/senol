@@ -26,11 +26,11 @@
  * use  memset(3) in new programs. */
 
 void
-bzero(void *s, size_t n)
+bzero (void *s, size_t n)
 {
-    /* The bzero() function sets the first n bytes of the byte area starting at s
-     * to zero, we may use the function memset() */
-    memset(s,0,n);
+  /* The bzero() function sets the first n bytes of the byte area starting at s
+   * to zero, we may use the function memset() */
+  memset (s, 0, n);
 }
 
 /* $Id$ */

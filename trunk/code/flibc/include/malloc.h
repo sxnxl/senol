@@ -57,10 +57,11 @@ Size: | __meminfo.padding | __MEMINFO_SIZE | __meminfo.size | __meminfo.alignmen
 
 #include <fake.h>
 
-enum _mem_flags {
-    _MEM_MALLOC     = 0x01, /* Memory is allocated by malloc or its friends */
-    _MEM_CALLOC     = 0x02, /* Memory is allocated by calloc (zeroed)       */
-    _MEM_MEMALIGN   = 0x04  /* Memory is allocated by memalign,.. (aligned) */
+enum _mem_flags
+{
+  _MEM_MALLOC = 0x01,		/* Memory is allocated by malloc or its friends */
+  _MEM_CALLOC = 0x02,		/* Memory is allocated by calloc (zeroed)       */
+  _MEM_MEMALIGN = 0x04		/* Memory is allocated by memalign,.. (aligned) */
 };
 
 /* size of the info part of a chunk */
@@ -77,7 +78,7 @@ enum _mem_flags {
 
 struct __meminfo
 {
-  enum _mem_flags flags;		/* allocator type */
+  enum _mem_flags flags;	/* allocator type */
   size_t padding;		/* size of unused area that is at beginning */
   size_t alignment;		/* alignment */
   size_t size;			/* usable (requested) size */

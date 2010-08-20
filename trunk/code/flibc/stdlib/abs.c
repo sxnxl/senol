@@ -23,11 +23,11 @@
 #include <stdlib.h>
 
 int
-abs(int j)
+abs (int j)
 {
-    /* if j is negative then absolute value is positive of itself (-j),
-     * if j is positive then absolute value is itself (j) */
-    return j < 0 ? -j : j;
+  /* if j is negative then absolute value is positive of itself (-j),
+   * if j is positive then absolute value is itself (j) */
+  return j < 0 ? -j : j;
 }
 
 /* $Id$ */
