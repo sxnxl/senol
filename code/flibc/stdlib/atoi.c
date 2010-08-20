@@ -19,32 +19,56 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <fake.h>
-#include <ctype.h>
 #include <limits.h>
+#include <ctype.h>
 #include <stdlib.h>
 
-#define DIGINT(x) (x - '0')
-
 int
-atoi(const char *nptr)
+atoi (const char *nptr)
 {
-    int sign;
-    int retval = 0;
+  int sign = 1;
+  int retval = 0;
+  int int_bound = INT_MAX / 10;
 
-    /* ignore white spaces */
-    while (isspace(*nptr))
-        nptr++;
+  /* ignore preceding white spaces */
+  while (isspace (*nptr))
+    nptr++;
 
-    if (*nptr == '-' || *nptr == '+')
-        sign = (*nptr++ == '+') ? 1 : -1;
+  /* handle preceding sign if there is any */
+  if (*nptr == '-' || *nptr == '+')
+    sign = (*nptr++ == '+') ? 1 : -1;
 
-    while (isdigit(*nptr))
+  /* add digits to number (retval),
+   * but not more than one less than the number of digits of INT_MAX */
+  while (isdigit (*nptr) && int_bound)
     {
-        if (retval = INT_MAX/10)
-            if (*nptr)
-
+      retval = retval * 10 + (*nptr - '0');
+      int_bound /= 10;
+      nptr++;
     }
+
+  if (!isdigit (*nptr))
+    return sign * retval;
+  else
+    {
+      if (retval > INT_MAX / 10)
+	goto overflow;
+      else if (retval < INT_MAX / 10)
+	goto normal;
+      else if (*nptr - '0' > abs (((sign == 1) ? INT_MAX : INT_MIN) % 10))
+	goto overflow;
+      else
+	goto normal;
+    }
+
+normal:
+  if (isdigit (*(nptr + 1)))
+    goto overflow;
+  else
+    return sign * (retval * 10 + (*nptr - '0'));
+
+overflow:
+  return ((sign == 1) ? INT_MAX : INT_MIN);
 }
 
 /* $Id$ */

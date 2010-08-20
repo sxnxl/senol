@@ -134,16 +134,14 @@ extern int strverscmp (const char *s1, const char *s2);
 
 /* strnlen - determine the length of a fixed-size string */
 #undef strnlen
-extern size_t strnlen(const char *s, size_t maxlen);
+extern size_t strnlen (const char *s, size_t maxlen);
 
 /* memfrob - frobnicate (encrypt) a memory area */
 #undef memfrob
-extern void *memfrob(void *s, size_t n);
+extern void *memfrob (void *s, size_t n);
 
 #endif /* _GNU_SOURCE */
 
 __END_DECLS
-
 #endif /* string.h */
-
 /* $Id$ */

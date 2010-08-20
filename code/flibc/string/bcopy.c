@@ -27,12 +27,12 @@
  * Note that the first two arguments are interchanged for memcpy() and memmove(). */
 
 void
-bcopy(const void *src, void *dest, size_t n)
+bcopy (const void *src, void *dest, size_t n)
 {
-    /* The bcopy() function copies n bytes from src to dest.
-     * The result should be correct, even when both areas overlap.
-     * So we need to use memmove() to handle overlaps */
-    memmove(dest,src,n);
+  /* The bcopy() function copies n bytes from src to dest.
+   * The result should be correct, even when both areas overlap.
+   * So we need to use memmove() to handle overlaps */
+  memmove (dest, src, n);
 }
 
 /* $Id$ */
