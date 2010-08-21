@@ -27,12 +27,12 @@
 #ifdef _xabs_t
 # undef _xabs_t
 #endif
-#define _xabs_t long long int /* define return type (long long int) */
+#define _xabs_t long long int	/* define return type (long long int) */
 
 #ifdef _xabs_func
 # undef _xabs_func
 #endif
-#define _xabs_func llabs /* define function name as (llabs) */
+#define _xabs_func llabs	/* define function name as (llabs) */
 
 #include "xabs.c"
 

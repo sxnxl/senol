@@ -27,12 +27,12 @@
 #ifdef _xabs_t
 # undef _xabs_t
 #endif
-#define _xabs_t long int /* define return type (long int) */
+#define _xabs_t long int	/* define return type (long int) */
 
 #ifdef _xabs_func
 # undef _xabs_func
 #endif
-#define _xabs_func labs /* define function name as (labs) */
+#define _xabs_func labs		/* define function name as (labs) */
 
 #include "xabs.c"
 

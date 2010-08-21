@@ -50,8 +50,8 @@ _atox_func (const char *nptr)
 
   /* add digits to number (retval),
    * but not more than one less than the number of digits of INT_MAX */
-  for (;isdigit (*nptr) && digits;nptr++,digits--)
-      retval = retval * 10 + (*nptr - '0');
+  for (; isdigit (*nptr) && digits; nptr++, digits--)
+    retval = retval * 10 + (*nptr - '0');
 
   if (!isdigit (*nptr))
     return sign * retval;
@@ -61,7 +61,8 @@ _atox_func (const char *nptr)
 	goto overflow;
       else if (retval < _ATOX_MAX / 10)
 	goto normal;
-      else if (*nptr - '0' > abs ((int)(((sign == 1) ? _ATOX_MAX : _ATOX_MIN) % 10)))
+      else if (*nptr - '0' >
+	       abs ((int) (((sign == 1) ? _ATOX_MAX : _ATOX_MIN) % 10)))
 	goto overflow;
       else
 	goto normal;

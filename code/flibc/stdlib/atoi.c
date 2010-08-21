@@ -29,17 +29,17 @@
 #ifdef _atox_t
 # undef _atox_t
 #endif
-#define _atox_t int /* define return type (int) */
+#define _atox_t int		/* define return type (int) */
 
 #ifdef _atox_type
 # undef _atox_type
 #endif
-#define _atox_type INT /* define function type (INT) */
+#define _atox_type INT		/* define function type (INT) */
 
 #ifdef _atox_func
 # undef _atox_func
 #endif
-#define _atox_func atoi /* define function name as (atoi) */
+#define _atox_func atoi		/* define function name as (atoi) */
 
 #include "atox.c"
 
