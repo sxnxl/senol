@@ -27,15 +27,15 @@ strreverse (const char *s)
 {
   char c;
   size_t i;
-  register size_t len = strlen(s);
-  register size_t mid = len/2;
+  register size_t len = strlen (s);
+  register size_t mid = len / 2;
 
-  for (i=0;i<mid;i++)
-  {
-    c = s[i];
-    s[i] = s[len-i-1];
-    s[len-i-1] = c;
-  }
+  for (i = 0; i < mid; i++)
+    {
+      c = s[i];
+      s[i] = s[len - i - 1];
+      s[len - i - 1] = c;
+    }
 
   return s;
 }

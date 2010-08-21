@@ -27,12 +27,12 @@
 #ifdef _xabs_t
 # undef _xabs_t
 #endif
-#define _xabs_t int /* define return type (int) */
+#define _xabs_t int		/* define return type (int) */
 
 #ifdef _xabs_func
 # undef _xabs_func
 #endif
-#define _xabs_func abs /* define function name as (abs) */
+#define _xabs_func abs		/* define function name as (abs) */
 
 #include "xabs.c"
 

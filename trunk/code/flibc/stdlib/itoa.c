@@ -27,22 +27,23 @@ itoa (char *nptr, int n)
 {
   char *cptr = nptr;
 
-  if (n<0)
+  if (n < 0)
     *cptr++ = '-';
 
-  while (n) {
-    *cptr++ = '0' + abs(n)%10;
-    n /= 10;
-  }
+  while (n)
+    {
+      *cptr++ = '0' + abs (n) % 10;
+      n /= 10;
+    }
 
   *cptr = '\0';
 
-  if (n<0)
-    cptr = nptr+1;
+  if (n < 0)
+    cptr = nptr + 1;
   else
     cptr = nptr;
-  
-  strreverse(cptr);
+
+  strreverse (cptr);
 
   return nptr;
 }

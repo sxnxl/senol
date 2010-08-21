@@ -29,17 +29,17 @@
 #ifdef _atox_t
 # undef _atox_t
 #endif
-#define _atox_t long long int /* define return type (long long int) */
+#define _atox_t long long int	/* define return type (long long int) */
 
 #ifdef _atox_type
 # undef _atox_type
 #endif
-#define _atox_type LLONG /* define function type (LLONG) */
+#define _atox_type LLONG	/* define function type (LLONG) */
 
 #ifdef _atox_func
 # undef _atox_func
 #endif
-#define _atox_func atoll /* define function name as (atoll) */
+#define _atox_func atoll	/* define function name as (atoll) */
 
 #include "atox.c"
 

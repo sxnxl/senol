@@ -51,4 +51,3 @@
 #ifndef INT_DIGIT
 #  define INT_DIGIT ((int)(LOG_2*((double)(INT_BIT-1))))
 #endif
-

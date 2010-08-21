@@ -25,20 +25,18 @@
 #include <fake.h>
 
 __BEGIN_DECLS
-
 /* Compute the absolute value of an integer */
 #undef abs
-extern int abs(int j);
+extern int abs (int j);
 
 /* Compute the absolute value of an long integer */
 #undef labs
-extern long int labs(long int j);
+extern long int labs (long int j);
 
 /* Compute the absolute value of an long long integer */
 #undef llabs
-extern long long int llabs(long long int j);
+extern long long int llabs (long long int j);
 
 __END_DECLS
 #endif /* stdlib.h */
-
 /* $Id$ */

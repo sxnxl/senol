@@ -1,4 +1,11 @@
 2010-08-21  Şenol Korkmaz  <mail@senolkorkmaz.info>
+	
+	* stdlib/: Add file xabs.c (base of *abs family)
+	* stdlib/abs.c: now using xabs
+	* stdlib/labs.c: now using xabs
+	* stdlib/llabs.c: now using xabs
+
+2010-08-21  Şenol Korkmaz  <mail@senolkorkmaz.info>
 
 	* includes/fake.h: Added macros INT_BIT, LONG_BIT, LLONG_BIT.
 	Added macros INT_DIGIT, LONG_DIGIT, LLONG_DIGIT for maximum number of decimal digits.
