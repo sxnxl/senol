@@ -37,3 +37,18 @@
 #endif /* fake.h */
 
 /* $Id$ */
+/* TODO: we need to validate INT_BIT when compiling flibc */
+#ifndef INT_BIT
+#  define INT_BIT (CHAR_BIT * (sizeof(int) / sizeof(char)))
+#else
+#  warning "flibc using predefined INT_BIT"
+#endif
+
+#ifndef LOG_2
+#  define LOG_2 ((double)0.301)
+#endif
+
+#ifndef INT_DIGIT
+#  define INT_DIGIT ((int)(LOG_2*((double)(INT_BIT-1))))
+#endif
+

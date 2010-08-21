@@ -1,13 +1,28 @@
-2010-06-10  Şenol Korkmaz  <mail@senolkorkmaz.info>
+2010-08-21  Şenol Korkmaz  <mail@senolkorkmaz.info>
+
+	* includes/fake.h: Added macros INT_BIT, LONG_BIT, LLONG_BIT.
+	Added macros INT_DIGIT, LONG_DIGIT, LLONG_DIGIT for maximum number of decimal digits.
+	Added constants for common logarithms. (LOG_2 etc.)
+
+	* includes/: Add file stdlib.h
+
+	* stdlib/atoi.c: now uses atox.c
+	* stdlib/: Add file atox.c (base of ato* family)
+	* stdlib/: Add files atol.c, atoll.c
+	* stdlib/: Add files labs.c, llabs.c
+	* stdlib/: Add file itoa.c (flibc extension: integer to string)
+	* string/: Add file strreverse.c (flibc extension: reverse a string)
+
+2010-08-15  Şenol Korkmaz  <mail@senolkorkmaz.info>
 
 	* string/: Add files bcopy.c, bzero.c
 	* stdlib/: Add files abs.c, atoi.c
 
-2010-06-10  Şenol Korkmaz  <mail@senolkorkmaz.info>
+2010-08-01  Şenol Korkmaz  <mail@senolkorkmaz.info>
 
 	* string/: Add files memmem.c, strnlen.c, memfrob.c
 
-2010-06-10  Şenol Korkmaz  <mail@senolkorkmaz.info>
+2010-07-11  Şenol Korkmaz  <mail@senolkorkmaz.info>
 
 	* string/strverscmp.c: New file
 

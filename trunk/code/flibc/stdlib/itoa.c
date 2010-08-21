@@ -1,4 +1,4 @@
-/*  atoi - convert a string to an integer
+/*  itoa - convert an integer to a string
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -19,28 +19,32 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <limits.h>
-#include <ctype.h>
-#include <fake.h>
+#include <string.h>
 #include <stdlib.h>
 
-/* see atox.c */
+char *
+itoa (char *nptr, int n)
+{
+  char *cptr = nptr;
 
-#ifdef _atox_t
-# undef _atox_t
-#endif
-#define _atox_t int /* define return type (int) */
+  if (n<0)
+    *cptr++ = '-';
 
-#ifdef _atox_type
-# undef _atox_type
-#endif
-#define _atox_type INT /* define function type (INT) */
+  while (n) {
+    *cptr++ = '0' + abs(n)%10;
+    n /= 10;
+  }
 
-#ifdef _atox_func
-# undef _atox_func
-#endif
-#define _atox_func atoi /* define function name as (atoi) */
+  *cptr = '\0';
 
-#include "atox.c"
+  if (n<0)
+    cptr = nptr+1;
+  else
+    cptr = nptr;
+  
+  strreverse(cptr);
+
+  return nptr;
+}
 
 /* $Id$ */

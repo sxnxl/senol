@@ -1,4 +1,4 @@
-/*  atoi - convert a string to an integer
+/*  malloc.h - Dynamic memory allocators
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -19,28 +19,26 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <limits.h>
-#include <ctype.h>
+#ifndef _STDLIB_H
+#define _STDLIB_H   1
+
 #include <fake.h>
-#include <stdlib.h>
 
-/* see atox.c */
+__BEGIN_DECLS
 
-#ifdef _atox_t
-# undef _atox_t
-#endif
-#define _atox_t int /* define return type (int) */
+/* Compute the absolute value of an integer */
+#undef abs
+extern int abs(int j);
 
-#ifdef _atox_type
-# undef _atox_type
-#endif
-#define _atox_type INT /* define function type (INT) */
+/* Compute the absolute value of an long integer */
+#undef labs
+extern long int labs(long int j);
 
-#ifdef _atox_func
-# undef _atox_func
-#endif
-#define _atox_func atoi /* define function name as (atoi) */
+/* Compute the absolute value of an long long integer */
+#undef llabs
+extern long long int llabs(long long int j);
 
-#include "atox.c"
+__END_DECLS
+#endif /* stdlib.h */
 
 /* $Id$ */

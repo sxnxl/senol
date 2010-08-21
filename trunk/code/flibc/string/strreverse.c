@@ -1,4 +1,4 @@
-/*  atoi - convert a string to an integer
+/*  strreverse - reverse a string
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -19,28 +19,25 @@
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <limits.h>
-#include <ctype.h>
 #include <fake.h>
-#include <stdlib.h>
+#include <string.h>
 
-/* see atox.c */
+char *
+strreverse (const char *s)
+{
+  char c;
+  size_t i;
+  register size_t len = strlen(s);
+  register size_t mid = len/2;
 
-#ifdef _atox_t
-# undef _atox_t
-#endif
-#define _atox_t int /* define return type (int) */
+  for (i=0;i<mid;i++)
+  {
+    c = s[i];
+    s[i] = s[len-i-1];
+    s[len-i-1] = c;
+  }
 
-#ifdef _atox_type
-# undef _atox_type
-#endif
-#define _atox_type INT /* define function type (INT) */
-
-#ifdef _atox_func
-# undef _atox_func
-#endif
-#define _atox_func atoi /* define function name as (atoi) */
-
-#include "atox.c"
+  return s;
+}
 
 /* $Id$ */
