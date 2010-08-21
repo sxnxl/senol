@@ -9,7 +9,7 @@ See the LEGEND at the end of this file for information about prefixal marks.
 ++- abs
 --- atexit
 --- atof
---- atoi
++-- atoi
 --- atol
 --- atoll
 --- bsearch
@@ -20,7 +20,7 @@ See the LEGEND at the end of this file for information about prefixal marks.
 --- erand48
 --- exit
 --- fcvt
---- free
++-- free
 --- gcvt
 --- getenv
 --- getsubopt
@@ -28,13 +28,13 @@ See the LEGEND at the end of this file for information about prefixal marks.
 --- initstate
 --- jrand48
 --- l64a
---- labs
+++- labs
 --- lcong48
 --- ldiv
---- llabs
+++- llabs
 --- lldiv
 --- lrand48
---- malloc
++-- malloc
 --- mblen
 --- mbstowcs
 --- mbtowc
@@ -50,7 +50,7 @@ See the LEGEND at the end of this file for information about prefixal marks.
 --- rand
 --- rand_r
 --- random
---- realloc
++-- realloc
 --- realpath
 --- seed48
 --- setenv

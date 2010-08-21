@@ -1,4 +1,4 @@
-/*  atoi - convert a string to an integer
+/*  atol - convert a string to a long integer
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -29,17 +29,17 @@
 #ifdef _atox_t
 # undef _atox_t
 #endif
-#define _atox_t int /* define return type (int) */
+#define _atox_t long int /* define return type (long int) */
 
 #ifdef _atox_type
 # undef _atox_type
 #endif
-#define _atox_type INT /* define function type (INT) */
+#define _atox_type LONG /* define function type (LONG) */
 
 #ifdef _atox_func
 # undef _atox_func
 #endif
-#define _atox_func atoi /* define function name as (atoi) */
+#define _atox_func atol /* define function name as (atol) */
 
 #include "atox.c"
 
