@@ -1,7 +1,6 @@
 
   flibc - An implementation of C Standard Library for educational purposes
   Şenol Korkmaz <mail@senolkorkmaz.info>
-  Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
 
 PREFACE
 -------
@@ -25,16 +24,16 @@ use within a production environment or on embedded system.
 LICENSE
 -------
   flibc is free software: you can redistribute it and/or modify
-  it under the terms of the GNU Lesser General Public License as published by
+  it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
   flibc is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU Lesser General Public License for more details.
+  GNU General Public License for more details.
 
-  You should have received a copy of the GNU Lesser General Public License
+  You should have received a copy of the GNU General Public License
   along with flibc, see the file COPYING.LESSER. If not, see <http://www.gnu.org/licenses/>.
 
 
@@ -56,7 +55,7 @@ FILES
 -----
 ChangeLog   - Log of important changes
 COPYING     - The terms of GNU General Public License
-COPYING.LESSER - The terms of GNU Lesser General Public License
+COPYING.LESSER - The terms of GNU General Public License
 BUGS        - List of known bugs
 README      - This file
 TODO        - TODO list

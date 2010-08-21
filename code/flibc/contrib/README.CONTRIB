@@ -15,7 +15,7 @@ if you treat him/her as an average developer who is using C language and Unix li
 operating system. Write your code and documentation as intended for such a reader.
 
 Before sending contributions, consider that flibc is licensed under the terms of
-GNU Lesser General Public License so we publish only GNU LGPL compatible work.
+GNU General Public License so we publish only GNU GPL compatible work.
 Please provide the copyright and license notices along with your work.
 
 In some cases I might make corrections to your contributions, and in most cases
