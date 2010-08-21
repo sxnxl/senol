@@ -22,12 +22,18 @@
 #include <fake.h>
 #include <stdlib.h>
 
-long int
-labs (long int j)
-{
-  /* if j is negative then absolute value is positive of itself (-j),
-   * if j is positive then absolute value is itself (j) */
-  return j < 0 ? -j : j;
-}
+/* see xabs.c */
+
+#ifdef _xabs_t
+# undef _xabs_t
+#endif
+#define _xabs_t long int /* define return type (long int) */
+
+#ifdef _xabs_func
+# undef _xabs_func
+#endif
+#define _xabs_func labs /* define function name as (labs) */
+
+#include "xabs.c"
 
 /* $Id$ */
