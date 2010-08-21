@@ -1,4 +1,4 @@
-/*  abs - compute the absolute value of an integer
+/*  abs, labs, llabs - compute the absolute value of an integer
 
     Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
     Copyright © 2010 Sarı Çizmeli Mehmet Ağa (a.k.a. John Doe) <scma@senolkorkmaz.info>
@@ -22,18 +22,16 @@
 #include <fake.h>
 #include <stdlib.h>
 
-/* see xabs.c */
-
-#ifdef _xabs_t
-# undef _xabs_t
+#if !defined _xabs_t || !defined _xabs_func
+#  error "Do not compile xabs.c directly; abs, labs, llabs instead."
 #endif
-#define _xabs_t int /* define return type (int) */
 
-#ifdef _xabs_func
-# undef _xabs_func
-#endif
-#define _xabs_func abs /* define function name as (abs) */
-
-#include "xabs.c"
+_xabs_t
+_xabs_func (_xabs_t j)
+{
+  /* if j is negative then absolute value is positive of itself (-j),
+   * if j is positive then absolute value is itself (j) */
+  return j < 0 ? -j : j;
+}
 
 /* $Id$ */
