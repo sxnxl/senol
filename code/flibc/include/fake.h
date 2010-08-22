@@ -33,9 +33,6 @@
 # define __END_DECLS
 #endif /* __cplusplus */
 
-#endif /* fake.h */
-
-/* $Id$ */
 /* TODO: we need to validate INT_BIT when compiling flibc */
 #ifndef INT_BIT
 #  define INT_BIT (CHAR_BIT * (sizeof(int) / sizeof(char)))
@@ -50,3 +47,7 @@
 #ifndef INT_DIGIT
 #  define INT_DIGIT ((int)(LOG_2*((double)(INT_BIT-1))))
 #endif
+
+#endif /* fake.h */
+
+/* $Id$ */
