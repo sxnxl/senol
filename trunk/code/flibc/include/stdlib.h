@@ -23,6 +23,11 @@
 
 #include <fake.h>
 
+/* We define these the same for all machines.
+   Changes from this to the outside world should be done in `_exit'.  */
+#define	EXIT_FAILURE	1	/* Failing exit status.  */
+#define	EXIT_SUCCESS	0	/* Successful exit status.  */
+
 __BEGIN_DECLS
 /* Compute the absolute value of an integer */
 #undef abs
@@ -36,6 +41,11 @@ extern long int labs (long int j);
 #undef llabs
 extern long long int llabs (long long int j);
 
+/*  */
+#undef exit
+extern void exit(int status);
+
 __END_DECLS
 #endif /* stdlib.h */
 /* $Id$ */
+
