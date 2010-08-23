@@ -1,6 +1,6 @@
 /*  malloc.h - Dynamic memory allocators
 
-    Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright (C) 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
 
     This file is part of flibc.
 
@@ -43,9 +43,8 @@ extern long long int llabs (long long int j);
 
 /*  */
 #undef exit
-extern void exit(int status);
+extern void exit (int status);
 
 __END_DECLS
 #endif /* stdlib.h */
 /* $Id$ */
-

@@ -1,7 +1,6 @@
 /*  strcpy - copy a string
 
-    Copyright © 2010 İlker Dağlı <dagligroupilker@gmail.com>
-    Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright (C) 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
 
     This file is part of flibc.
 
@@ -17,6 +16,8 @@
 
     You should have received a copy of the GNU General Public License
     along with flibc.  If not, see <http://www.gnu.org/licenses/>.
+    
+    Contributed by İlker Dağlı <dagligroupilker@gmail.com>, 2010.
 */
 
 char *

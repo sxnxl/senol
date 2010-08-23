@@ -1,6 +1,6 @@
 /*  strcspn - search a string for a set of characters
 
-    Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright (C) 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
 
     This file is part of flibc.
 

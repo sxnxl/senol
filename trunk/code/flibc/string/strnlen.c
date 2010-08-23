@@ -1,6 +1,6 @@
 /*  strnlen - determine the length of a fixed-size string
 
-    Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright (C) 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
 
     This file is part of flibc.
 

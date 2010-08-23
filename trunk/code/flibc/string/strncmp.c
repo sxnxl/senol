@@ -1,7 +1,7 @@
 /*  strncmp - compare two strings
     Based on P.J. Plauger's implementation. (The Standard C Library, 1992)
 
-    Copyright © 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
+    Copyright (C) 2010 Şenol Korkmaz <mail@senolkorkmaz.info>
 
     This file is part of flibc.
 
